@@ -1,0 +1,2960 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Participles & Past Participles Mastery | B1–B2</title>
+<style>
+:root{
+  --bg:#f5f9ff; --card:#ffffff; --ink:#0f172a; --muted:#64748b;
+  --primary:#3b82f6; --primary-dark:#1e40af; --primary-soft:#dbeafe; --primary-light:#eff6ff;
+  --border:#e2ecf9; --ok:#15803d; --ok-bg:#dcfce7; --bad:#b91c1c; --bad-bg:#fee2e2;
+  --warn:#b45309; --warn-bg:#fef3c7; --radius:16px;
+  --shadow:0 1px 2px rgba(15,23,42,.04), 0 8px 24px rgba(59,130,246,.07);
+}
+[data-theme="dark"]{
+  --bg:#0b1220; --card:#111a2e; --ink:#e2e8f0; --muted:#94a3b8;
+  --border:#1f2a44; --primary-soft:#1e3a8a; --primary-light:#172554;
+  --ok-bg:#052e16; --bad-bg:#450a0a; --warn-bg:#451a03;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  background:var(--bg); color:var(--ink); line-height:1.6; font-size:16px;
+  transition:background .2s,color .2s;
+}
+button{font-family:inherit;font-size:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+a{color:var(--primary)}
+h1,h2,h3,h4{line-height:1.3;font-weight:700}
+ul,ol{padding-left:1.25rem}
+li{margin-bottom:.3rem}
+
+/* Layout */
+.app{display:flex;min-height:100vh}
+.sidebar{
+  width:264px;flex:0 0 264px;background:var(--card);border-right:1px solid var(--border);
+  position:sticky;top:0;height:100vh;overflow-y:auto;padding:18px 14px;
+  display:flex;flex-direction:column;gap:6px;z-index:60;transition:transform .25s;
+}
+.brand{display:flex;gap:10px;align-items:center;padding:8px 8px 16px;border-bottom:1px solid var(--border);margin-bottom:12px}
+.brand-logo{
+  width:42px;height:42px;border-radius:12px;flex:0 0 42px;
+  background:linear-gradient(135deg,#3b82f6,#60a5fa);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;
+}
+.brand-text b{display:block;font-size:14px;line-height:1.25}
+.brand-text span{font-size:11.5px;color:var(--muted)}
+.nav-btn{
+  display:flex;align-items:center;gap:11px;width:100%;text-align:left;
+  padding:10px 12px;border-radius:11px;color:var(--ink);font-size:14.5px;font-weight:500;
+  transition:background .15s,color .15s;
+}
+.nav-btn:hover{background:var(--primary-light);color:var(--primary-dark)}
+.nav-btn.active{background:var(--primary-soft);color:var(--primary-dark);font-weight:600}
+.nav-btn .ic{font-size:16px;width:20px;text-align:center}
+.sidebar-foot{margin-top:auto;padding:12px 10px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--border)}
+
+.main{flex:1;min-width:0;display:flex;flex-direction:column}
+.topbar{
+  position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);padding:10px 18px;display:flex;align-items:center;gap:12px;
+}
+[data-theme="dark"] .topbar{background:rgba(17,26,46,.92)}
+.hamburger{display:none;font-size:20px;padding:6px 10px;border-radius:10px;background:var(--primary-light);color:var(--primary-dark)}
+.topbar-title{font-size:15px;font-weight:700}
+.topbar-title small{display:block;font-weight:500;font-size:11.5px;color:var(--muted)}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--muted)}
+.pill{background:var(--primary-soft);color:var(--primary-dark);padding:4px 10px;border-radius:999px;font-weight:600;font-size:12px}
+.content{padding:22px 18px 70px;max-width:1100px;width:100%;margin:0 auto;flex:1}
+.overlay{display:none}
+
+/* Generic */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card+.card{margin-top:16px}
+.page-head{margin-bottom:18px}
+.page-head h1{font-size:22px;letter-spacing:-.3px}
+.page-head p{color:var(--muted);font-size:14px;margin-top:4px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.spacer{flex:1}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.tiny{font-size:12px}
+b,strong{font-weight:700}
+code{background:var(--primary-light);color:var(--primary-dark);padding:1px 6px;border-radius:6px;font-family:"SFMono-Regular",Consolas,monospace;font-size:.92em}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px 18px;border-radius:11px;font-weight:600;font-size:14.5px;
+  background:var(--primary);color:#fff;transition:.15s;border:1px solid transparent;
+}
+.btn:hover{background:var(--primary-dark)}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn.ghost{background:var(--card);color:var(--primary-dark);border-color:var(--primary-soft)}
+.btn.ghost:hover{background:var(--primary-light)}
+.btn.soft{background:var(--primary-soft);color:var(--primary-dark)}
+.btn.soft:hover{background:var(--primary-light)}
+.btn.danger{background:var(--card);color:var(--bad);border-color:#f5c2c2}
+.btn.danger:hover{background:var(--bad-bg)}
+.btn.ok{background:var(--ok);color:#fff}
+.btn.ok:hover{filter:brightness(.95)}
+.btn.sm{padding:7px 13px;font-size:13px;border-radius:9px}
+.btn.block{width:100%}
+
+/* Chips */
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:thin}
+.chip{
+  flex:0 0 auto;padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--border);
+  font-size:13.5px;font-weight:600;color:var(--ink);white-space:nowrap;
+}
+.chip:hover{border-color:var(--primary-soft)}
+.chip.active{background:var(--primary);border-color:var(--primary);color:#fff}
+
+/* Progress bar */
+.bar{height:9px;border-radius:999px;background:var(--primary-light);overflow:hidden}
+.bar>span{display:block;height:100%;background:linear-gradient(90deg,#3b82f6,#60a5fa);border-radius:999px;transition:width .4s}
+.bar.ok>span{background:linear-gradient(90deg,#16a34a,#4ade80)}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px}
+.stat .label{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.stat .value{font-size:24px;font-weight:800;margin-top:2px;color:var(--primary-dark)}
+[data-theme="dark"] .stat .value{color:#93c5fd}
+
+/* Lesson styling */
+.lesson-header{background:linear-gradient(135deg,var(--primary-light),var(--card));border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.lesson-header .lnum{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--primary);text-transform:uppercase}
+.lesson-header h2{font-size:22px;margin-top:2px}
+.lesson-header .vi{color:var(--muted);font-size:14px;margin-top:2px}
+.objectives{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.obj{background:var(--card);border:1px solid var(--primary-soft);color:var(--primary-dark);font-size:12.5px;padding:5px 11px;border-radius:999px}
+.sec-title{font-size:17px;font-weight:700;margin:22px 0 12px;display:flex;align-items:center;gap:8px}
+.sec-title::before{content:"";width:4px;height:18px;border-radius:3px;background:var(--primary)}
+.ls-section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:12px}
+.ls-section h3{font-size:15.5px;color:var(--primary-dark);margin-bottom:8px}
+[data-theme="dark"] .ls-section h3{color:#93c5fd}
+.ls-section p{margin-bottom:8px;font-size:14.6px}
+.ls-section ul{margin:6px 0 10px 4px;font-size:14.5px}
+.note{background:var(--warn-bg);border-left:3px solid #f59e0b;padding:9px 12px;border-radius:0 10px 10px 0;font-size:14px;color:#7c4a03;margin:8px 0}
+[data-theme="dark"] .note{color:#fbbf24}
+.ex{border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--primary-light);margin-bottom:10px}
+[data-theme="dark"] .ex{background:var(--primary-light)}
+.ex .en{font-size:15px;font-weight:600;margin-top:3px}
+.ex .vi{font-size:13.5px;color:var(--muted);font-style:italic}
+.mistake{border:1px solid #fde3e3;background:var(--bad-bg);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+[data-theme="dark"] .mistake{border-color:#7f1d1d}
+.mistake .wrong{color:var(--bad);font-size:14.5px}
+.mistake .right{color:var(--ok);font-size:14.5px;font-weight:600}
+.mistake .why{font-size:13.5px;color:var(--muted);margin-top:5px}
+table.tbl{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}
+table.tbl th,table.tbl td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--border)}
+table.tbl th{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+
+/* Questions */
+.q-wrap{max-width:820px;margin:0 auto}
+.q-top{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.q-counter{font-size:13px;font-weight:700;color:var(--primary-dark);background:var(--primary-soft);padding:4px 12px;border-radius:999px}
+.timer{font-size:13px;font-weight:700;color:var(--warn);background:var(--warn-bg);padding:4px 12px;border-radius:999px}
+.timer.danger{color:var(--bad);background:var(--bad-bg)}
+.q-text{font-size:16.5px;font-weight:600;margin-bottom:6px;white-space:pre-line}
+.q-context{background:var(--primary-light);border-left:3px solid var(--primary);padding:11px 14px;border-radius:0 10px 10px 0;font-size:14.5px;color:var(--ink);margin-bottom:12px;white-space:pre-line}
+.opt{
+  display:flex;align-items:flex-start;gap:11px;width:100%;text-align:left;
+  padding:13px 15px;border:1.5px solid var(--border);border-radius:12px;background:var(--card);
+  margin-bottom:9px;font-size:15px;transition:.12s;
+}
+.opt:hover{border-color:#93c5fd;background:var(--primary-light)}
+.opt .k{
+  flex:0 0 24px;height:24px;border-radius:7px;background:var(--primary-soft);color:var(--primary-dark);
+  font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center;
+}
+.opt.sel{border-color:var(--primary);background:var(--primary-light)}
+.opt.sel .k{background:var(--primary);color:#fff}
+.opt.correct{border-color:#4ade80;background:var(--ok-bg)}
+.opt.correct .k{background:var(--ok);color:#fff}
+.opt.wrong{border-color:#f87171;background:var(--bad-bg)}
+.opt.wrong .k{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+
+input[type=text].answer,textarea.answer{
+  width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:12px;
+  font-size:15px;background:var(--card);outline:none;transition:.15s;
+}
+textarea.answer{min-height:80px;resize:vertical}
+input[type=text].answer:focus,textarea.answer:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(59,130,246,.12)}
+
+select.match{
+  padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;background:var(--card);
+  font-size:14px;max-width:100%;outline:none;flex:1 1 230px;min-width:0;
+}
+.match-row{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--border);flex-wrap:wrap}
+.match-row:last-child{border-bottom:none}
+.match-left{font-size:14.5px;font-weight:600;flex:1 1 220px;min-width:0}
+.match-row.correct select{border-color:#4ade80;background:var(--ok-bg)}
+.match-row.wrong select{border-color:#f87171;background:var(--bad-bg)}
+
+.feedback{border-radius:13px;padding:14px 16px;margin-top:14px;font-size:14.6px}
+.feedback.ok{background:var(--ok-bg);border:1px solid #86efac;color:#14532d}
+.feedback.bad{background:var(--bad-bg);border:1px solid #fca5a5;color:#7f1d1d}
+.feedback.neutral{background:var(--warn-bg);border:1px solid #fcd34d;color:#78350f}
+[data-theme="dark"] .feedback.ok{color:#bbf7d0}
+[data-theme="dark"] .feedback.bad{color:#fecaca}
+[data-theme="dark"] .feedback.neutral{color:#fde68a}
+.feedback .fb-title{font-weight:800;margin-bottom:4px;font-size:15px}
+.feedback .fb-ans{background:rgba(255,255,255,.55);border-radius:9px;padding:9px 12px;margin-top:8px;font-size:14px}
+[data-theme="dark"] .feedback .fb-ans{background:rgba(0,0,0,.2)}
+.feedback .fb-exp{margin-top:9px;font-size:14px;line-height:1.6}
+
+.result-hero{text-align:center;padding:26px 18px}
+.score-ring{
+  width:132px;height:132px;border-radius:50%;margin:0 auto 14px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;font-weight:800;font-size:30px;color:var(--primary-dark);
+  background:conic-gradient(var(--primary) var(--pct), var(--primary-light) 0);position:relative;
+}
+[data-theme="dark"] .score-ring{color:#93c5fd}
+.score-ring::after{content:"";position:absolute;inset:9px;background:var(--card);border-radius:50%}
+.score-ring span{position:relative;z-index:1;line-height:1}
+.score-ring small{position:relative;z-index:1;font-size:11.5px;font-weight:600;color:var(--muted);letter-spacing:.5px;margin-top:3px}
+
+.badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11.5px;font-weight:700}
+.badge.ok{background:var(--ok-bg);color:#166534}
+.badge.bad{background:var(--bad-bg);color:#991b1b}
+.badge.warn{background:var(--warn-bg);color:#92400e}
+.badge.info{background:var(--primary-soft);color:var(--primary-dark)}
+[data-theme="dark"] .badge.ok{color:#bbf7d0}
+[data-theme="dark"] .badge.bad{color:#fecaca}
+[data-theme="dark"] .badge.warn{color:#fde68a}
+[data-theme="dark"] .badge.info{color:#bfdbfe}
+
+.empty{text-align:center;padding:44px 18px;color:var(--muted)}
+.empty .big{font-size:38px;margin-bottom:8px}
+
+.lesson-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:15px;box-shadow:var(--shadow);cursor:pointer;transition:.15s}
+.lesson-card:hover{border-color:var(--primary-soft);transform:translateY(-2px)}
+.lesson-card h4{font-size:14.5px;margin-bottom:2px}
+.lesson-card .sub{font-size:12px;color:var(--muted);margin-bottom:9px}
+
+.switch{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--border);font-size:14.5px}
+.switch:last-child{border-bottom:none}
+.switch input{width:18px;height:18px;accent-color:var(--primary)}
+input[type=number].num{padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;width:100px;background:var(--card)}
+.search-box{
+  width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:11px;
+  background:var(--card);font-size:14.5px;outline:none;
+}
+.search-box:focus{border-color:var(--primary)}
+
+/* Responsive */
+@media (max-width:900px){
+  .sidebar{
+    position:fixed;left:0;top:0;bottom:0;transform:translateX(-100%);
+    box-shadow:0 0 40px rgba(15,23,42,.18);
+  }
+  .sidebar.open{transform:translateX(0)}
+  .hamburger{display:block}
+  .overlay.show{display:block;position:fixed;inset:0;background:rgba(15,23,42,.35);z-index:50}
+  .content{padding:16px 12px 80px}
+  .topbar-right .hide-sm{display:none}
+  body{font-size:15.5px}
+}
+@media (max-width:480px){
+  .card{padding:15px}
+  .lesson-header{padding:15px}
+  .lesson-header h2{font-size:19px}
+  .btn{padding:9px 15px;font-size:14px}
+  .opt{padding:11px 12px;font-size:14.5px}
+  .score-ring{width:112px;height:112px;font-size:25px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">PM</div>
+      <div class="brand-text">
+        <b>Participles Mastery</b>
+        <span>B1–B2 · Vietnamese Support</span>
+      </div>
+    </div>
+    <button class="nav-btn" data-action="nav" data-view="dashboard"><span class="ic">📊</span> Dashboard</button>
+    <button class="nav-btn" data-action="nav" data-view="lessons"><span class="ic">📘</span> Grammar Lessons</button>
+    <button class="nav-btn" data-action="nav" data-view="practice"><span class="ic">✏️</span> Practice Center</button>
+    <button class="nav-btn" data-action="nav" data-view="tests"><span class="ic">📝</span> Comprehensive Tests</button>
+    <button class="nav-btn" data-action="nav" data-view="progress"><span class="ic">📈</span> Progress</button>
+    <button class="nav-btn" data-action="nav" data-view="mistakes"><span class="ic">🔁</span> Mistakes Review</button>
+    <button class="nav-btn" data-action="nav" data-view="settings"><span class="ic">⚙️</span> Settings</button>
+    <div class="sidebar-foot">
+      Participles &amp; Past Participles Mastery<br>
+      Nội dung học tập được biên soạn riêng cho người học Việt Nam B1–B2.
+    </div>
+  </aside>
+  <div class="overlay" id="overlay" data-action="close-sidebar"></div>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="hamburger" data-action="toggle-sidebar" aria-label="Mở menu">☰</button>
+      <div class="topbar-title" id="topTitle">
+        Dashboard
+        <small>Participles &amp; Past Participles Mastery</small>
+      </div>
+      <div class="topbar-right">
+        <span class="pill hide-sm" id="topStreak">🔥 0 ngày</span>
+        <span class="pill" id="topAcc">0% chính xác</span>
+      </div>
+    </header>
+    <div class="content" id="view"></div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* =======================================================================
+   1. LESSONS DATA
+   ======================================================================= */
+const LESSONS = [
+{
+id:1, title:"Introduction to Participles", titleVI:"Giới thiệu về Phân từ", level:"B1",
+objectives:[
+  "Hiểu phân từ là gì và hai dạng cơ bản: V-ing (present participle) và V3/-ed (past participle)",
+  "Phân biệt hình thức động từ và phân từ dùng như tính từ",
+  "Nhận biết phân từ trong các thì tiếp diễn, hoàn thành và bị động"
+],
+sections:[
+ {heading:"1. What is a participle? — Phân từ là gì?", html:
+  "<p><b>Phân từ (participle)</b> là một dạng của động từ, được dùng để tạo các thì phức hợp (tiếp diễn, hoàn thành, bị động) hoặc hoạt động như một <b>tính từ</b> bổ nghĩa cho danh từ.</p>"+
+  "<p>Có hai loại phân từ chính trong tiếng Anh:</p>"+
+  "<ul><li><b>Present participle (Phân từ hiện tại): V-ing</b> — ví dụ: <i>running, writing, doing</i></li>"+
+  "<li><b>Past participle (Phân từ quá khứ): V3 / -ed</b> — ví dụ: <i>broken, written, done</i></li></ul>"+
+  "<div class='note'>Lưu ý quan trọng: tên gọi “present” và “past” chỉ hình thức ngữ pháp, <b>không quyết định thì</b> của câu. Ví dụ <i>broken</i> có thể xuất hiện trong câu hiện tại: <i>The window is broken.</i></div>"},
+ {heading:"2. Participle as part of a verb phrase", html:
+  "<p>Phân từ thường kết hợp với trợ động từ để tạo thành các thì:</p>"+
+  "<ul><li><b>Tiếp diễn:</b> She <b>is studying</b> English. (be + V-ing)</li>"+
+  "<li><b>Hoàn thành:</b> I <b>have finished</b> my homework. (have + V3)</li>"+
+  "<li><b>Bị động:</b> The book <b>was written</b> by a famous author. (be + V3)</li></ul>"},
+ {heading:"3. Participle as an adjective", html:
+  "<p>Phân từ có thể đứng trước danh từ hoặc sau động từ nối (linking verb) để bổ nghĩa:</p>"+
+  "<ul><li><b>Trước danh từ:</b> a <i>boring</i> lecture, a <i>broken</i> window, an <i>exciting</i> match</li>"+
+  "<li><b>Sau linking verb:</b> The lesson <i>is interesting</i>. / She <i>looks tired</i>.</li></ul>"+
+  "<div class='note'>Cùng một phân từ, tùy ngữ cảnh, có thể là một phần của động từ ghép hoặc là một tính từ. Ví dụ: <i>The door was closed.</i> (bị động – hành động) so với <i>The door is closed.</i> (tính từ – trạng thái).</div>"}
+],
+examples:[
+ {en:"She is studying English in the library.", vi:"Cô ấy đang học tiếng Anh trong thư viện. (V-ing trong thì tiếp diễn)"},
+ {en:"The book was written by a famous author.", vi:"Cuốn sách được viết bởi một tác giả nổi tiếng. (V3 trong bị động)"},
+ {en:"The lesson is interesting.", vi:"Bài học thì thú vị. (V-ing làm tính từ)"},
+ {en:"I have finished my homework.", vi:"Tôi đã làm xong bài tập về nhà. (V3 trong thì hoàn thành)"},
+ {en:"The broken window needs to be repaired.", vi:"Cửa sổ bị vỡ cần được sửa. (V3 làm tính từ trước danh từ)"},
+ {en:"A crying baby woke everyone up.", vi:"Một em bé đang khóc đã đánh thức mọi người. (V-ing làm tính từ)"},
+ {en:"The documents submitted yesterday are on the desk.", vi:"Các tài liệu được nộp hôm qua đang ở trên bàn. (V3 sau danh từ)"},
+ {en:"Having finished the report, she left the office.", vi:"Sau khi hoàn thành báo cáo, cô ấy rời văn phòng. (perfect participle)"}
+],
+mistakes:[
+ {wrong:"The window is break.", right:"The window is broken.", why:"Sau 'be' trong câu bị động/tính từ phải dùng V3, không dùng động từ nguyên mẫu."},
+ {wrong:"I have finish my homework.", right:"I have finished my homework.", why:"Sau 'have/has' trong thì hoàn thành phải dùng V3."},
+ {wrong:"She is study English.", right:"She is studying English.", why:"Sau 'be' trong thì tiếp diễn phải dùng V-ing."}
+]
+},
+{
+id:2, title:"Present Participle (V-ing)", titleVI:"Phân từ hiện tại (V-ing)", level:"B1",
+objectives:[
+  "Nắm quy tắc thành lập V-ing và các trường hợp chính tả đặc biệt",
+  "Dùng V-ing trong các thì tiếp diễn",
+  "Dùng V-ing như tính từ mang nghĩa chủ động",
+  "Nhận biết mệnh đề phân từ hiện tại (present participle clause)"
+],
+sections:[
+ {heading:"1. Formation & spelling rules", html:
+  "<table class='tbl'><thead><tr><th>Quy tắc</th><th>Ví dụ</th></tr></thead><tbody>"+
+  "<tr><td>Thêm <b>-ing</b> vào động từ thường</td><td>work → working, read → reading</td></tr>"+
+  "<tr><td>Động từ tận cùng <b>-e</b> → bỏ <b>e</b>, thêm <b>-ing</b></td><td>make → making, write → writing</td></tr>"+
+  "<tr><td>Động từ một âm tiết tận cùng bằng <b>1 phụ âm</b> sau <b>1 nguyên âm</b> → gấp đôi phụ âm</td><td>run → running, sit → sitting, stop → stopping</td></tr>"+
+  "<tr><td>Động từ tận cùng <b>-ie</b> → đổi thành <b>-ying</b></td><td>lie → lying, die → dying</td></tr>"+
+  "<tr><td>Động từ tận cùng <b>-ee, -oe, -ye</b> → giữ nguyên</td><td>see → seeing, agree → agreeing</td></tr>"+
+  "</tbody></table>"},
+ {heading:"2. V-ing in continuous tenses", html:
+  "<p>V-ing xuất hiện trong tất cả các thì tiếp diễn: hiện tại tiếp diễn, quá khứ tiếp diễn, hiện tại hoàn thành tiếp diễn, tương lai tiếp diễn.</p>"+
+  "<ul><li>She <b>is working</b> in the office right now.</li>"+
+  "<li>They <b>were playing</b> football when it started to rain.</li>"+
+  "<li>I <b>have been studying</b> English for five years.</li></ul>"},
+ {heading:"3. V-ing as an adjective (active meaning)", html:
+  "<p>Khi làm tính từ, V-ing thường mang <b>nghĩa chủ động</b> — mô tả đối tượng <i>gây ra</i> cảm giác hoặc <i>đang thực hiện</i> hành động:</p>"+
+  "<ul><li>The film is <b>boring</b>. (bộ phim gây buồn chán)</li>"+
+  "<li>We watched the <b>rising</b> sun.</li></ul>"},
+ {heading:"4. Present participle clause", html:
+  "<p>Mệnh đề V-ing có thể rút gọn một mệnh đề phụ mang nghĩa chủ động:</p>"+
+  "<ul><li><b>Knowing</b> the answer, she raised her hand. (= Because she knew the answer, ...)</li>"+
+  "<li><b>Walking</b> home, I met an old friend. (= While I was walking home, ...)</li></ul>"+
+  "<div class='note'>Chủ ngữ ẩn của mệnh đề V-ing phải trùng với chủ ngữ mệnh đề chính — nếu không sẽ tạo ra lỗi <b>dangling participle</b> (xem Lesson 9).</div>"}
+],
+examples:[
+ {en:"She is working in the office.", vi:"Cô ấy đang làm việc trong văn phòng. (thì tiếp diễn)"},
+ {en:"The man standing near the door is my teacher.", vi:"Người đàn ông đứng gần cửa là giáo viên của tôi. (V-ing sau danh từ, chủ động)"},
+ {en:"Knowing the answer, she raised her hand.", vi:"Vì biết câu trả lời, cô ấy đã giơ tay. (mệnh đề phân từ chỉ lý do)"},
+ {en:"A growing number of students use e-books.", vi:"Ngày càng nhiều sinh viên sử dụng sách điện tử. (V-ing làm tính từ)"},
+ {en:"The film was really exciting.", vi:"Bộ phim thực sự rất hấp dẫn. (bộ phim gây hứng thú)"},
+ {en:"Not knowing what to do, I called my friend.", vi:"Không biết phải làm gì, tôi đã gọi cho bạn tôi. (mệnh đề phủ định)"},
+ {en:"Walking home, I saw a beautiful sunset.", vi:"Trong khi đi bộ về nhà, tôi thấy một hoàng hôn đẹp."},
+ {en:"The students are preparing for the exam.", vi:"Các sinh viên đang chuẩn bị cho kỳ thi."}
+],
+mistakes:[
+ {wrong:"He is run in the park.", right:"He is running in the park.", why:"Sau 'be' trong tiếp diễn phải dùng V-ing, không dùng động từ nguyên mẫu."},
+ {wrong:"The book is very interested.", right:"The book is very interesting.", why:"Sách gây hứng thú → dùng V-ing (interesting), không dùng V3."},
+ {wrong:"Not know what to say, she stayed silent.", right:"Not knowing what to say, she stayed silent.", why:"Dạng phủ định của mệnh đề phân từ là not + V-ing."}
+]
+},
+{
+id:3, title:"Past Participle (V3 / -ed)", titleVI:"Phân từ quá khứ (V3 / -ed)", level:"B1",
+objectives:[
+  "Nắm quy tắc thành lập V3 với động từ có quy tắc và bất quy tắc",
+  "Dùng V3 trong các thì hoàn thành",
+  "Dùng V3 trong câu bị động",
+  "Dùng V3 như tính từ mang nghĩa bị động/trạng thái"
+],
+sections:[
+ {heading:"1. Regular & irregular past participles", html:
+  "<table class='tbl'><thead><tr><th>Loại</th><th>Base</th><th>V3</th></tr></thead><tbody>"+
+  "<tr><td rowspan='4'>Regular (-ed)</td><td>work</td><td>worked</td></tr>"+
+  "<tr><td>study</td><td>studied</td></tr>"+
+  "<tr><td>stop</td><td>stopped</td></tr>"+
+  "<tr><td>arrive</td><td>arrived</td></tr>"+
+  "<tr><td rowspan='5'>Irregular</td><td>write</td><td>written</td></tr>"+
+  "<tr><td>break</td><td>broken</td></tr>"+
+  "<tr><td>go</td><td>gone</td></tr>"+
+  "<tr><td>do</td><td>done</td></tr>"+
+  "<tr><td>see</td><td>seen</td></tr>"+
+  "</tbody></table>"},
+ {heading:"2. V3 in perfect tenses", html:
+  "<p>V3 là thành phần bắt buộc sau trợ động từ <b>have / has / had</b> trong các thì hoàn thành:</p>"+
+  "<ul><li>I <b>have finished</b> my homework.</li>"+
+  "<li>She <b>had left</b> before we arrived.</li>"+
+  "<li>They <b>will have completed</b> the project by June.</li></ul>"},
+ {heading:"3. V3 in passive voice", html:
+  "<p>Cấu trúc bị động: <code>be + V3</code> ở mọi thì.</p>"+
+  "<ul><li>The window <b>was broken</b> yesterday.</li>"+
+  "<li>The report <b>has been submitted</b>.</li>"+
+  "<li>The bridge <b>is being repaired</b>.</li></ul>"},
+ {heading:"4. V3 as an adjective (passive/state meaning)", html:
+  "<p>Khi làm tính từ, V3 mang <b>nghĩa bị động</b> hoặc mô tả <b>trạng thái</b> — đối tượng <i>chịu tác động</i> hoặc đang ở trạng thái nào đó:</p>"+
+  "<ul><li>a <b>broken</b> window (cửa sổ bị làm vỡ)</li>"+
+  "<li>a <b>written</b> exam (bài thi được viết)</li>"+
+  "<li>a <b>frightened</b> child (đứa trẻ cảm thấy sợ)</li>"+
+  "<li>The documents <b>submitted</b> yesterday are on the desk. (được nộp hôm qua)</li></ul>"}
+],
+examples:[
+ {en:"I have finished my homework.", vi:"Tôi đã làm xong bài tập về nhà."},
+ {en:"The window was broken by a football.", vi:"Cửa sổ bị vỡ bởi một quả bóng."},
+ {en:"The documents submitted yesterday are on the desk.", vi:"Các tài liệu nộp hôm qua đang ở trên bàn."},
+ {en:"She was tired after the long journey.", vi:"Cô ấy mệt sau chuyến đi dài."},
+ {en:"The letter written by hand was difficult to read.", vi:"Lá thư viết tay rất khó đọc."},
+ {en:"We were surprised by the news.", vi:"Chúng tôi bị bất ngờ bởi tin tức."},
+ {en:"The money stolen from the safe was recovered.", vi:"Số tiền bị lấy trộm khỏi két đã được tìm lại."},
+ {en:"The completed project received high praise.", vi:"Dự án đã hoàn thành nhận được nhiều lời khen."}
+],
+mistakes:[
+ {wrong:"I have wrote a letter.", right:"I have written a letter.", why:"Sau 'have' phải dùng V3 (written), không dùng V2 (wrote)."},
+ {wrong:"The window was break yesterday.", right:"The window was broken yesterday.", why:"Trong bị động, sau 'be' phải dùng V3."},
+ {wrong:"She is very boring with the film.", right:"She is very bored with the film.", why:"Người cảm thấy chán → dùng V3 (bored)."}
+]
+},
+{
+id:4, title:"Present vs Past Participle as Adjectives", titleVI:"Phân từ hiện tại vs quá khứ (làm tính từ)", level:"B1",
+objectives:[
+  "Phân biệt rõ ràng tính từ V-ing và tính từ V3/-ed",
+  "Nắm quy tắc: V-ing = gây ra cảm giác; V3/-ed = cảm thấy",
+  "Nhận biết các cặp tính từ thông dụng và nghĩa tiếng Việt tương ứng"
+],
+sections:[
+ {heading:"1. Nguyên tắc cốt lõi", html:
+  "<p><b>V-ing</b> mô tả <i>đối tượng gây ra</i> cảm giác, hiệu ứng, hoặc có tính chất chủ động.</p>"+
+  "<p><b>V3/-ed</b> mô tả <i>người hoặc vật cảm thấy</i> cảm giác đó, hoặc bị tác động bởi ai/cái gì.</p>"+
+  "<div class='note'>Quy tắc thực hành: Nếu chủ ngữ là <b>người</b> và động từ diễn tả cảm xúc → thường dùng <b>V3/-ed</b>. Nếu chủ ngữ là <b>vật / sự việc</b> gây ra cảm xúc → thường dùng <b>V-ing</b>. Tuy nhiên nghĩa còn phụ thuộc vào ngữ cảnh.</div>"},
+ {heading:"2. Bảng so sánh các cặp tính từ thông dụng", html:
+  "<table class='tbl'><thead><tr><th>V-ing</th><th>V3/-ed</th><th>Nghĩa</th></tr></thead><tbody>"+
+  "<tr><td>interesting</td><td>interested</td><td>thú vị / cảm thấy hứng thú</td></tr>"+
+  "<tr><td>boring</td><td>bored</td><td>nhàm chán / cảm thấy chán</td></tr>"+
+  "<tr><td>exciting</td><td>excited</td><td>hấp dẫn / cảm thấy hào hứng</td></tr>"+
+  "<tr><td>confusing</td><td>confused</td><td>gây khó hiểu / cảm thấy bối rối</td></tr>"+
+  "<tr><td>tiring</td><td>tired</td><td>gây mệt / cảm thấy mệt</td></tr>"+
+  "<tr><td>surprising</td><td>surprised</td><td>gây ngạc nhiên / cảm thấy ngạc nhiên</td></tr>"+
+  "<tr><td>disappointing</td><td>disappointed</td><td>gây thất vọng / cảm thấy thất vọng</td></tr>"+
+  "<tr><td>frightening</td><td>frightened</td><td>đáng sợ / cảm thấy sợ</td></tr>"+
+  "<tr><td>annoying</td><td>annoyed</td><td>gây khó chịu / cảm thấy khó chịu</td></tr>"+
+  "<tr><td>embarrassing</td><td>embarrassed</td><td>gây xấu hổ / cảm thấy xấu hổ</td></tr>"+
+  "<tr><td>worrying</td><td>worried</td><td>đáng lo / cảm thấy lo lắng</td></tr>"+
+  "<tr><td>amazing</td><td>amazed</td><td>kinh ngạc / cảm thấy kinh ngạc</td></tr>"+
+  "</tbody></table>"},
+ {heading:"3. Phân tích chi tiết một số cặp", html:
+  "<p><b>Interesting / Interested</b></p>"+
+  "<ul><li>The lecture is <i>interesting</i>. — Bài giảng thú vị (bài giảng gây hứng thú).</li>"+
+  "<li>I am <i>interested</i> in the lecture. — Tôi thấy hứng thú với bài giảng.</li></ul>"+
+  "<p><b>Confusing / Confused</b></p>"+
+  "<ul><li>The instructions are <i>confusing</i>. — Hướng dẫn khó hiểu (gây bối rối).</li>"+
+  "<li>I am <i>confused</i> by the instructions. — Tôi bị bối rối bởi hướng dẫn.</li></ul>"+
+  "<div class='note'>Ngoại lệ: một số tính từ V-ing có thể dùng cho người khi nhấn mạnh tính chất, ví dụ: <i>He is very interesting.</i> (anh ấy thú vị) hoặc <i>She is amazing.</i> (cô ấy tuyệt vời).</div>"}
+],
+examples:[
+ {en:"The lesson is confusing.", vi:"Bài học thì khó hiểu."},
+ {en:"I am confused by the lesson.", vi:"Tôi cảm thấy bối rối vì bài học."},
+ {en:"The journey was tiring.", vi:"Chuyến đi thì mệt."},
+ {en:"We were tired after the journey.", vi:"Chúng tôi cảm thấy mệt sau chuyến đi."},
+ {en:"The news was very surprising.", vi:"Tin tức rất đáng ngạc nhiên."},
+ {en:"She was surprised by the news.", vi:"Cô ấy bị bất ngờ bởi tin tức."},
+ {en:"His behaviour was disappointing.", vi:"Hành vi của anh ta thật đáng thất vọng."},
+ {en:"I was disappointed with the result.", vi:"Tôi cảm thấy thất vọng với kết quả."}
+],
+mistakes:[
+ {wrong:"I am very boring with this book.", right:"I am very bored with this book.", why:"Người cảm thấy chán → dùng V3 (bored). Sách mới là boring."},
+ {wrong:"The film was very interested.", right:"The film was very interesting.", why:"Phim gây hứng thú → dùng V-ing (interesting)."},
+ {wrong:"She felt very embarrassing when she made the mistake.", right:"She felt very embarrassed when she made the mistake.", why:"Người cảm thấy xấu hổ → dùng V3 (embarrassed)."}
+]
+},
+{
+id:5, title:"Participles as Adjectives", titleVI:"Phân từ làm tính từ", level:"B1",
+objectives:[
+  "Dùng phân từ trước danh từ và sau động từ nối",
+  "Phân biệt ý nghĩa chủ động (V-ing) và bị động/trạng thái (V3)",
+  "Nhận biết tính từ phân từ trong miêu tả thực tế"
+],
+sections:[
+ {heading:"1. Participle before a noun — Phân từ trước danh từ", html:
+  "<p>Phân từ có thể đứng ngay trước danh từ để bổ nghĩa:</p>"+
+  "<ul><li>an <b>exciting</b> experience (trải nghiệm thú vị — gây hứng thú)</li>"+
+  "<li>a <b>broken</b> window (cửa sổ bị vỡ)</li>"+
+  "<li>a <b>running</b> tap (vòi nước đang chảy)</li>"+
+  "<li>a <b>written</b> exam (bài thi viết)</li></ul>"},
+ {heading:"2. Participle after a linking verb", html:
+  "<p>Sau các động từ nối (<i>be, look, seem, feel, become, get, sound, taste, smell</i>) ta dùng phân từ như tính từ:</p>"+
+  "<ul><li>She <b>looks tired</b>. (cô ấy trông có vẻ mệt)</li>"+
+  "<li>The situation <b>seems confusing</b>.</li>"+
+  "<li>I <b>feel exhausted</b> after work.</li></ul>"},
+ {heading:"3. Adjective meaning vs verb meaning", html:
+  "<p>Cần phân biệt khi nào phân từ là một phần của động từ ghép, khi nào nó là tính từ:</p>"+
+  "<ul><li>She <b>is writing</b> a letter. → động từ ghép (thì tiếp diễn)</li>"+
+  "<li>This is a <b>writing</b> desk. → tính từ (bàn để viết)</li>"+
+  "<li>The door <b>was closed</b> by the guard. → bị động (hành động)</li>"+
+  "<li>The door <b>is closed</b>. → tính từ (trạng thái)</li></ul>"+
+  "<div class='note'>Khi muốn diễn tả <i>trạng thái</i> (kết quả còn lại), ta thường dùng tính từ phân từ ở thì hiện tại: <i>The window is broken.</i> Khi muốn diễn tả <i>hành động</i>, ta thêm tác nhân hoặc trạng ngữ thời gian: <i>The window was broken by the storm yesterday.</i></div>"},
+ {heading:"4. Common adjective patterns", html:
+  "<ul><li><b>be + participle + preposition:</b> interested <i>in</i>, bored <i>with</i>, tired <i>of</i>, surprised <i>at</i></li>"+
+  "<li><b>a + participle + noun:</b> a disappointing result, an exciting trip, a broken promise</li>"+
+  "<li><b>participle + -ly → adverb?</b> — Không phải lúc nào cũng có. Ví dụ: <i>surprisingly</i> (trạng từ) ≠ <i>surprised</i> (tính từ).</li></ul>"}
+],
+examples:[
+ {en:"She looks tired after the long meeting.", vi:"Cô ấy trông mệt mỏi sau cuộc họp dài."},
+ {en:"The situation seems confusing to new employees.", vi:"Tình huống có vẻ khó hiểu với nhân viên mới."},
+ {en:"An exciting match kept fans on their feet.", vi:"Một trận đấu hấp dẫn khiến khán giả đứng suốt."},
+ {en:"The damaged car was taken to the garage.", vi:"Chiếc xe bị hỏng đã được đưa đến garage."},
+ {en:"His encouraging words helped me a lot.", vi:"Lời động viên của anh ấy giúp tôi rất nhiều."},
+ {en:"I felt relieved when the exam finished.", vi:"Tôi cảm thấy nhẹ nhõm khi kỳ thi kết thúc."}
+],
+mistakes:[
+ {wrong:"The game was very excited.", right:"The game was very exciting.", why:"Trận đấu gây hào hứng → V-ing (exciting)."},
+ {wrong:"I am interesting in learning Japanese.", right:"I am interested in learning Japanese.", why:"Người cảm thấy hứng thú → V3 (interested)."},
+ {wrong:"This knife is broken — it doesn't cut.", right:"This knife is broken — it doesn't cut.", why:"Không sai ngữ pháp — nhưng lưu ý 'broken' ở đây là tính từ, không phải động từ ghép."}
+]
+},
+{
+id:6, title:"Participles after Nouns — Reduced Relative Clauses", titleVI:"Phân từ sau danh từ — Mệnh đề quan hệ rút gọn", level:"B2",
+objectives:[
+  "Rút gọn mệnh đề quan hệ chủ động bằng V-ing",
+  "Rút gọn mệnh đề quan hệ bị động bằng V3",
+  "Nhận biết khi nào có thể rút gọn và khi nào không"
+],
+sections:[
+ {heading:"1. Active reduction: noun + V-ing", html:
+  "<p>Khi mệnh đề quan hệ ở dạng chủ động với <b>who/which + is/are/was/were + V-ing</b> hoặc <b>who/which + V(s/es)</b>, ta có thể rút gọn thành cụm <b>noun + V-ing</b>:</p>"+
+  "<ul><li>The woman <b>who is talking</b> to the manager is my teacher. → The woman <b>talking</b> to the manager is my teacher.</li>"+
+  "<li>The students <b>who study</b> hard will succeed. → The students <b>studying</b> hard will succeed.</li></ul>"+
+  "<div class='note'>Chỉ rút gọn được khi chủ từ của mệnh đề quan hệ <b>trùng với chủ từ/danh từ đứng trước</b>.</div>"},
+ {heading:"2. Passive reduction: noun + V3", html:
+  "<p>Khi mệnh đề quan hệ ở dạng bị động với <b>which/that + is/are/was/were + V3</b>, ta rút gọn thành <b>noun + V3</b>:</p>"+
+  "<ul><li>The documents <b>which were submitted</b> yesterday are important. → The documents <b>submitted</b> yesterday are important.</li>"+
+  "<li>The house <b>which was built</b> in 1890 is now a museum. → The house <b>built</b> in 1890 is now a museum.</li></ul>"},
+ {heading:"3. Khi nào KHÔNG rút gọn?", html:
+  "<ul><li>Mệnh đề quan hệ ở thì <b>tương lai</b> hoặc <b>hiện tại hoàn thành</b> thường không rút gọn được: <i>The man who will teach us is...</i> (không rút gọn thành <s>the man teaching us</s> nếu ý là tương lai).</li>"+
+  "<li>Mệnh đề quan hệ <b>không xác định</b> với dấu phẩy: <i>My brother, who lives in Tokyo, ...</i> → ít khi rút gọn (trừ văn viết trang trọng).</li>"+
+  "<li>Khi mệnh đề quan hệ ở dạng phủ định: <i>The man who didn't come</i> → không rút gọn tự nhiên.</li></ul>"},
+ {heading:"4. Lưu ý về chủ động vs bị động", html:
+  "<table class='tbl'><thead><tr><th>Dạng đầy đủ</th><th>Rút gọn</th><th>Nghĩa</th></tr></thead><tbody>"+
+  "<tr><td>the man who is standing</td><td>the man standing</td><td>chủ động — người đàn ông đang đứng</td></tr>"+
+  "<tr><td>the car which was repaired</td><td>the car repaired</td><td>bị động — chiếc xe đã được sửa</td></tr>"+
+  "<tr><td>the letter which was written by John</td><td>the letter written by John</td><td>bị động — lá thư được viết bởi John</td></tr>"+
+  "</tbody></table>"}
+],
+examples:[
+ {en:"The woman talking to my teacher is my mother.", vi:"Người phụ nữ đang nói chuyện với giáo viên của tôi là mẹ tôi."},
+ {en:"The documents submitted yesterday are important.", vi:"Các tài liệu nộp hôm qua rất quan trọng."},
+ {en:"The house built in 1890 is now a museum.", vi:"Ngôi nhà được xây năm 1890 giờ là một bảo tàng."},
+ {en:"Students studying abroad often miss home.", vi:"Sinh viên du học thường nhớ nhà."},
+ {en:"The car repaired last week is running smoothly.", vi:"Chiếc xe được sửa tuần trước chạy rất êm."},
+ {en:"The man injured in the accident is recovering well.", vi:"Người đàn ông bị thương trong tai nạn đang hồi phục tốt."}
+],
+mistakes:[
+ {wrong:"The man who is standing there is my teacher → The man is standing there is my teacher.", right:"... → The man standing there is my teacher.", why:"Bỏ 'who is' nhưng phải chuyển V-ing đứng ngay sau danh từ."},
+ {wrong:"The documents which were submitted yesterday → The documents submitted yesterday were...", right:"Đúng.", why:"Không sai — nhưng lưu ý không được để lại 'which were' khi đã rút gọn."},
+ {wrong:"The girl who she is dancing is my sister.", right:"The girl dancing is my sister.", why:"Không dùng đại từ quan hệ thừa — bỏ hoàn toàn 'who she is'."}
+]
+},
+{
+id:7, title:"Participle Clauses", titleVI:"Mệnh đề phân từ", level:"B2",
+objectives:[
+  "Dùng mệnh đề phân từ để diễn tả thời gian, lý do, kết quả, hành động kèm theo",
+  "Dùng mệnh đề V-ing (chủ động) và V3 (bị động)",
+  "Kiểm tra sự tương thích giữa chủ ngữ ẩn và chủ ngữ mệnh đề chính"
+],
+sections:[
+ {heading:"1. Present participle clause — Mệnh đề phân từ hiện tại", html:
+  "<p>Mệnh đề V-ing có thể diễn tả:</p>"+
+  "<ul><li><b>Thời gian:</b> <b>Walking</b> to school, I saw an old friend. (= While I was walking...)</li>"+
+  "<li><b>Lý do:</b> <b>Knowing</b> the area well, he showed us the way. (= Because he knew...)</li>"+
+  "<li><b>Hành động kèm theo:</b> She sat by the window, <b>reading</b> a novel.</li>"+
+  "<li><b>Kết quả:</b> The bomb exploded, <b>killing</b> three people.</li></ul>"},
+ {heading:"2. Past participle clause — Mệnh đề phân từ quá khứ", html:
+  "<p>Mệnh đề V3 mang nghĩa bị động:</p>"+
+  "<ul><li><b>Built</b> in 1890, the building is now a museum. (= It was built in 1890, and...)</li>"+
+  "<li><b>Surrounded</b> by trees, the house is peaceful. (= The house is surrounded by trees, so...)</li>"+
+  "<li><b>Injured</b> in the accident, he was taken to hospital.</li></ul>"},
+ {heading:"3. Chủ ngữ tương thích", html:
+  "<p>Chủ ngữ ẩn của mệnh đề phân từ phải <b>trùng với chủ ngữ của mệnh đề chính</b>. Nếu không trùng, câu sẽ mắc lỗi <b>dangling participle</b> (xem Lesson 9).</p>"+
+  "<div class='note'>Khi mệnh đề phân từ đứng đầu câu, luôn dùng dấu phẩy ngăn cách với mệnh đề chính.</div>"},
+ {heading:"4. Khi nào KHÔNG dùng mệnh đề phân từ?", html:
+  "<ul><li>Khi hai hành động không cùng chủ ngữ: phải dùng mệnh đề đầy đủ.</li>"+
+  "<li>Khi quan hệ giữa hai hành động không rõ ràng: dùng liên từ cụ thể hơn (while, because, after).</li>"+
+  "<li>Trong văn nói hằng ngày, mệnh đề đầy đủ thường tự nhiên hơn.</li></ul>"}
+],
+examples:[
+ {en:"Walking to school, I saw an old friend.", vi:"Trong khi đi bộ đến trường, tôi gặp một người bạn cũ."},
+ {en:"Knowing the area well, he showed us the way.", vi:"Vì biết rõ khu vực, anh ấy đã chỉ đường cho chúng tôi."},
+ {en:"Built in 1890, the building is now a museum.", vi:"Được xây năm 1890, tòa nhà giờ là một bảo tàng."},
+ {en:"Surrounded by trees, the house is peaceful.", vi:"Được bao quanh bởi cây cối, ngôi nhà rất yên bình."},
+ {en:"Having finished the report, she left the office.", vi:"Sau khi hoàn thành báo cáo, cô ấy rời văn phòng."},
+ {en:"Not knowing what to say, he stayed silent.", vi:"Không biết nói gì, anh ấy im lặng."}
+],
+mistakes:[
+ {wrong:"Walking home, the rain started.", right:"Walking home, I got caught in the rain.", why:"Chủ ngữ 'I' phải là người đi bộ — nếu không sẽ là dangling participle."},
+ {wrong:"Known the area well, he showed us the way.", right:"Knowing the area well, he showed us the way.", why:"Nghĩa chủ động phải dùng V-ing, không dùng V3."},
+ {wrong:"Building in 1890, the building is now a museum.", right:"Built in 1890, the building is now a museum.", why:"Tòa nhà được xây → dùng V3 (bị động)."}
+]
+},
+{
+id:8, title:"Perfect Participle Clauses", titleVI:"Mệnh đề phân từ hoàn thành", level:"B2",
+objectives:[
+  "Dùng having + V3 cho hành động xảy ra trước",
+  "Dùng having been + V3 cho hành động bị động xảy ra trước",
+  "Phân biệt với mệnh đề V-ing đơn giản",
+  "Đảm bảo chủ ngữ tương thích"
+],
+sections:[
+ {heading:"1. Having + V3 — chủ động, hoàn thành trước", html:
+  "<p>Khi hành động ở mệnh đề phân từ <b>xảy ra trước</b> hành động ở mệnh đề chính, dùng <code>having + V3</code>:</p>"+
+  "<ul><li><b>Having finished</b> my homework, I watched television. (= After I had finished...)</li>"+
+  "<li><b>Having eaten</b> dinner, we went for a walk.</li></ul>"+
+  "<p>Có thể dùng <b>after + V-ing</b> để thay thế khi hai hành động gần nhau về thời gian:</p>"+
+  "<ul><li><b>After finishing</b> my homework, I watched television.</li></ul>"},
+ {heading:"2. Having been + V3 — bị động, hoàn thành trước", html:
+  "<p>Khi hành động ở mệnh đề phân từ mang nghĩa bị động và xảy ra trước, dùng <code>having been + V3</code>:</p>"+
+  "<ul><li><b>Having been informed</b> of the changes, the employees adjusted their schedules.</li>"+
+  "<li><b>Having been warned</b> about the storm, the villagers evacuated.</li></ul>"},
+ {heading:"3. Khi nào dùng having + V3 thay vì V-ing?", html:
+  "<ul><li>Khi cần nhấn mạnh <b>trình tự trước – sau</b> của hai hành động.</li>"+
+  "<li>Khi hai hành động có khoảng cách thời gian đáng kể.</li>"+
+  "<li>Khi muốn diễn đạt lịch sự hoặc văn viết trang trọng.</li></ul>"+
+  "<div class='note'>Nếu hai hành động diễn ra đồng thời hoặc gần như đồng thời, chỉ dùng <b>V-ing</b> là đủ và tự nhiên hơn: <i>Walking down the street, I saw him.</i></div>"},
+ {heading:"4. Chủ ngữ tương thích", html:
+  "<p>Như mọi mệnh đề phân từ, chủ ngữ ẩn của <i>having + V3</i> phải trùng với chủ ngữ mệnh đề chính:</p>"+
+  "<ul><li>✓ <b>Having finished</b> the report, <u>she</u> sent it to her manager.</li>"+
+  "<li>✗ <b>Having finished</b> the report, <u>the email was sent</u>. (sai — chủ ngữ không trùng)</li></ul>"}
+],
+examples:[
+ {en:"Having finished my homework, I watched television.", vi:"Sau khi làm xong bài tập, tôi xem tivi."},
+ {en:"Having been informed of the changes, the employees adjusted their schedules.", vi:"Sau khi được thông báo về các thay đổi, nhân viên đã điều chỉnh lịch làm việc."},
+ {en:"Having eaten dinner, we went for a walk.", vi:"Sau khi ăn tối, chúng tôi đi dạo."},
+ {en:"Having lived in London for years, she knows the city well.", vi:"Sau khi sống ở London nhiều năm, cô ấy biết rõ thành phố này."},
+ {en:"Having been warned about the storm, the villagers evacuated.", vi:"Sau khi được cảnh báo về cơn bão, dân làng đã sơ tán."}
+],
+mistakes:[
+ {wrong:"Having finished the report, the email was sent.", right:"Having finished the report, she sent the email.", why:"Chủ ngữ ẩn 'she' phải trùng với chủ ngữ mệnh đề chính."},
+ {wrong:"Have finished my homework, I watched TV.", right:"Having finished my homework, I watched TV.", why:"Đúng dạng là having + V3, không dùng have."},
+ {wrong:"Having been finished the report, she left.", right:"Having finished the report, she left.", why:"'Having been + V3' chỉ dùng khi hành động mang nghĩa bị động."}
+]
+},
+{
+id:9, title:"Dangling Participles", titleVI:"Lỗi phân từ treo (dangling participles)", level:"B2",
+objectives:[
+  "Hiểu dangling participle là gì và tại sao nó gây khó hiểu",
+  "Nhận biết và sửa câu mắc lỗi phân từ treo",
+  "Kiểm tra sự tương thích chủ ngữ ẩn và chủ ngữ mệnh đề chính"
+],
+sections:[
+ {heading:"1. Định nghĩa", html:
+  "<p><b>Dangling participle</b> (phân từ treo) là lỗi xảy ra khi <b>chủ ngữ ẩn của mệnh đề phân từ không trùng</b> với chủ ngữ của mệnh đề chính. Kết quả là câu vô tình gán hành động cho đối tượng không thực hiện hành động đó.</p>"+
+  "<div class='note'>Ví dụ sai: <i>Walking to school, the rain started.</i> — Câu này vô tình nói rằng “cơn mưa” đang đi bộ đến trường, điều này vô lý.</div>"},
+ {heading:"2. Cách nhận biết", html:
+  "<p>Khi gặp mệnh đề phân từ ở đầu câu, hãy tự hỏi: <i>“Ai / cái gì thực hiện hành động này?”</i>. Nếu câu trả lời không phải là chủ ngữ của mệnh đề chính, đó là dangling participle.</p>"+
+  "<ul><li>✗ <b>Walking</b> to school, the rain started. → Ai đi bộ? Không phải “the rain”.</li>"+
+  "<li>✓ <b>Walking</b> to school, I got caught in the rain. → “I” đi bộ.</li>"+
+  "<li>✓ While <b>I was walking</b> to school, the rain started. → Chuyển thành mệnh đề đầy đủ.</li></ul>"},
+ {heading:"3. Một số ví dụ điển hình", html:
+  "<ul><li>✗ <b>Having finished</b> the report, the email was sent. → Ai hoàn thành báo cáo? Không phải “the email”.<br>✓ <b>Having finished</b> the report, she sent the email.</li>"+
+  "<li>✗ <b>Built</b> in 1890, tourists visit the building. → “Tourists” không được xây.<br>✓ <b>Built</b> in 1890, the building attracts many tourists.</li>"+
+  "<li>✗ <b>Not knowing</b> the answer, the question was left blank. → “Câu hỏi” không biết câu trả lời.<br>✓ <b>Not knowing</b> the answer, I left the question blank.</li></ul>"},
+ {heading:"4. Cách sửa lỗi", html:
+  "<ul><li><b>Cách 1:</b> Đổi chủ ngữ mệnh đề chính cho phù hợp với hành động.</li>"+
+  "<li><b>Cách 2:</b> Chuyển mệnh đề phân từ thành mệnh đề đầy đủ với liên từ (<i>while, because, after, since...</i>).</li>"+
+  "<li><b>Cách 3:</b> Đổi mệnh đề phân từ thành mệnh đề quan hệ nếu cần.</li></ul>"}
+],
+examples:[
+ {en:"✗ Walking to school, the rain started. → ✓ Walking to school, I got caught in the rain.", vi:"Trong khi đi bộ đến trường, tôi bị mắc mưa."},
+ {en:"✗ Having finished the report, the email was sent. → ✓ Having finished the report, she sent the email.", vi:"Sau khi làm xong báo cáo, cô ấy đã gửi email."},
+ {en:"✗ Built in 1890, tourists visit the building. → ✓ Built in 1890, the building attracts many tourists.", vi:"Được xây năm 1890, tòa nhà thu hút nhiều khách du lịch."},
+ {en:"✗ Not knowing the answer, the question was left blank. → ✓ Not knowing the answer, I left the question blank.", vi:"Không biết câu trả lời, tôi để trống câu hỏi."}
+],
+mistakes:[
+ {wrong:"Looking out of the window, the garden was beautiful.", right:"Looking out of the window, I saw that the garden was beautiful.", why:"'I' mới là người nhìn ra ngoài cửa sổ, không phải 'the garden'."},
+ {wrong:"Exhausted after the trip, the bed felt wonderful.", right:"Exhausted after the trip, I found the bed wonderful.", why:"'I' mới là người cảm thấy mệt, không phải 'the bed'."},
+ {wrong:"Driving to work, the radio was playing.", right:"Driving to work, I was listening to the radio.", why:"'I' mới là người lái xe."}
+]
+},
+{
+id:10, title:"Integrated Participle Review", titleVI:"Ôn tập tổng hợp về phân từ", level:"B2",
+objectives:[
+  "Ôn tập toàn bộ các dạng phân từ và ứng dụng",
+  "Phân biệt V-ing và V3 trong mọi ngữ cảnh",
+  "Nhận biết và sửa lỗi phân từ",
+  "Áp dụng phân từ vào viết và đọc hiểu B2"
+],
+sections:[
+ {heading:"1. Bảng tổng hợp các dạng phân từ", html:
+  "<table class='tbl'><thead><tr><th>Dạng</th><th>Cấu trúc</th><th>Ví dụ</th><th>Chức năng</th></tr></thead><tbody>"+
+  "<tr><td>Present participle</td><td>V-ing</td><td>running</td><td>Tiếp diễn, tính từ chủ động, mệnh đề phân từ</td></tr>"+
+  "<tr><td>Past participle</td><td>V3/-ed</td><td>broken</td><td>Hoàn thành, bị động, tính từ bị động</td></tr>"+
+  "<tr><td>Perfect participle</td><td>having + V3</td><td>having finished</td><td>Hành động trước, chủ động</td></tr>"+
+  "<tr><td>Passive perfect participle</td><td>having been + V3</td><td>having been told</td><td>Hành động trước, bị động</td></tr>"+
+  "<tr><td>Reduced relative (active)</td><td>noun + V-ing</td><td>the man standing</td><td>Rút gọn mệnh đề quan hệ chủ động</td></tr>"+
+  "<tr><td>Reduced relative (passive)</td><td>noun + V3</td><td>the car repaired</td><td>Rút gọn mệnh đề quan hệ bị động</td></tr>"+
+  "</tbody></table>"},
+ {heading:"2. So sánh các cặp quan trọng", html:
+  "<ul><li><b>V-ing vs V3</b> khi làm tính từ: <i>exciting trip</i> (chuyến đi gây hào hứng) vs <i>excited children</i> (trẻ em cảm thấy hào hứng).</li>"+
+  "<li><b>V-ing clause vs perfect participle clause:</b> <i>Walking home, I saw him.</i> (đồng thời) vs <i>Having walked home, I saw him.</i> (đã về nhà trước, rồi mới thấy).</li>"+
+  "<li><b>Active reduced vs passive reduced:</b> <i>the man driving</i> (người đàn ông đang lái) vs <i>the car driven by him</i> (chiếc xe do anh ấy lái).</li></ul>"},
+ {heading:"3. Lỗi cần tránh", html:
+  "<ul><li>Dangling participle: chủ ngữ ẩn không trùng chủ ngữ mệnh đề chính.</li>"+
+  "<li>Dùng V-ing cho nghĩa bị động hoặc V3 cho nghĩa chủ động.</li>"+
+  "<li>Rút gọn mệnh đề quan hệ tương lai / hoàn thành thành V-ing.</li>"+
+  "<li>Quên dùng <i>having + V3</i> khi cần diễn tả hành động trước.</li></ul>"},
+ {heading:"4. Gợi ý học tập B2", html:
+  "<ul><li>Đọc các bài báo học thuật, chú ý các mệnh đề phân từ được dùng để nén thông tin.</li>"+
+  "<li>Trong writing học thuật, mệnh đề phân từ giúp giảm mệnh đề phụ, làm câu gọn hơn — nhưng phải chú ý chủ ngữ.</li>"+
+  "<li>Trong speaking, mệnh đề phân từ giúp câu tự nhiên và mạch lạc hơn.</li></ul>"}
+],
+examples:[
+ {en:"Built in 1890, the building is now a museum.", vi:"Được xây năm 1890, tòa nhà giờ là một bảo tàng."},
+ {en:"Having finished the report, she left the office.", vi:"Sau khi hoàn thành báo cáo, cô ấy rời văn phòng."},
+ {en:"The man standing near the door is my teacher.", vi:"Người đàn ông đứng gần cửa là giáo viên của tôi."},
+ {en:"Surprised by the news, he didn't say a word.", vi:"Bị bất ngờ bởi tin tức, anh ấy không nói gì."},
+ {en:"The documents submitted yesterday are on the desk.", vi:"Các tài liệu nộp hôm qua đang ở trên bàn."},
+ {en:"Not knowing what to do, I called my friend.", vi:"Không biết phải làm gì, tôi đã gọi cho bạn."},
+ {en:"A growing number of students study online.", vi:"Ngày càng nhiều sinh viên học trực tuyến."},
+ {en:"Having been warned about the storm, they cancelled the trip.", vi:"Sau khi được cảnh báo về cơn bão, họ đã hủy chuyến đi."}
+],
+mistakes:[
+ {wrong:"Having finish the work, she left.", right:"Having finished the work, she left.", why:"Sau 'having' phải dùng V3."},
+ {wrong:"Interested in the film, the popcorn was eaten by me.", right:"Interested in the film, I ate the popcorn.", why:"Dangling participle — 'I' mới là người cảm thấy hứng thú."}
+]
+}
+];
+
+/* =======================================================================
+   2. QUESTION BANK
+   ======================================================================= */
+const QUESTIONS = [
+/* ---------- Lesson 1 mini (5) ---------- */
+{id:"L1-01",lesson:1,category:"present_participle",difficulty:"B1",type:"mcq",
+ question:"She ______ English in the library at the moment.",
+ options:["studies","studying","is studying","study"],answer:"is studying",
+ explanationEN:"After 'be' in continuous tenses we use V-ing.",
+ explanationVI:"Sau 'be' trong thì tiếp diễn ta dùng V-ing. 'is studying' là thì hiện tại tiếp diễn."},
+{id:"L1-02",lesson:1,category:"past_participle",difficulty:"B1",type:"mcq",
+ question:"The book ______ by a famous author.",
+ options:["writes","wrote","was written","writing"],answer:"was written",
+ explanationEN:"Passive voice: be + V3.",
+ explanationVI:"Câu bị động: be + V3 → 'was written'."},
+{id:"L1-03",lesson:1,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"The lesson is ______.",
+ options:["interest","interesting","interested","interestingly"],answer:"interesting",
+ explanationEN:"The lesson causes interest → V-ing adjective.",
+ explanationVI:"Bài học gây ra sự hứng thú → dùng V-ing (interesting)."},
+{id:"L1-04",lesson:1,category:"past_participle",difficulty:"B1",type:"fill",
+ question:"I have ______ (finish) my homework.",
+ answer:["finished"],explanationEN:"Perfect tense: have + V3.",
+ explanationVI:"Thì hoàn thành: have + V3 → 'finished'."},
+{id:"L1-05",lesson:1,category:"past_participle",difficulty:"B1",type:"fill",
+ question:"The ______ (break) window needs to be repaired.",
+ answer:["broken"],explanationEN:"'Broken' is V3 used as an adjective before a noun.",
+ explanationVI:"'Broken' là V3, làm tính từ đứng trước danh từ 'window'."},
+
+/* ---------- Lesson 2 mini (10) ---------- */
+{id:"L2-01",lesson:2,category:"present_participle",difficulty:"B1",type:"fill",
+ question:"work → ______", answer:["working"],
+ explanationEN:"Simply add -ing.",explanationVI:"Thêm -ing trực tiếp."},
+{id:"L2-02",lesson:2,category:"present_participle",difficulty:"B1",type:"fill",
+ question:"make → ______", answer:["making"],
+ explanationEN:"Drop the final -e and add -ing.",explanationVI:"Bỏ 'e' cuối và thêm -ing."},
+{id:"L2-03",lesson:2,category:"present_participle",difficulty:"B1",type:"fill",
+ question:"run → ______", answer:["running"],
+ explanationEN:"Double the final consonant after a single vowel.",explanationVI:"Gấp đôi phụ âm cuối sau một nguyên âm."},
+{id:"L2-04",lesson:2,category:"present_participle",difficulty:"B1",type:"fill",
+ question:"lie → ______", answer:["lying"],
+ explanationEN:"-ie → -ying.",explanationVI:"Động từ tận cùng -ie đổi thành -ying."},
+{id:"L2-05",lesson:2,category:"present_participle",difficulty:"B1",type:"mcq",
+ question:"She ______ in the office right now.",
+ options:["works","working","is working","worked"],answer:"is working",
+ explanationEN:"Present continuous: be + V-ing.",explanationVI:"Hiện tại tiếp diễn: be + V-ing."},
+{id:"L2-06",lesson:2,category:"present_participle",difficulty:"B1",type:"mcq",
+ question:"The man ______ near the door is my teacher.",
+ options:["stand","standing","stood","stands"],answer:"standing",
+ explanationEN:"Reduced relative clause: noun + V-ing (active).",explanationVI:"Mệnh đề quan hệ rút gọn chủ động: noun + V-ing."},
+{id:"L2-07",lesson:2,category:"present_participle",difficulty:"B2",type:"mcq",
+ question:"______ the answer, she raised her hand.",
+ options:["Know","Known","Knowing","To know"],answer:"Knowing",
+ explanationEN:"Present participle clause for reason.",explanationVI:"Mệnh đề phân từ chỉ lý do → V-ing."},
+{id:"L2-08",lesson:2,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"The film was really ______.",
+ options:["excited","exciting","excite","excitedly"],answer:"exciting",
+ explanationEN:"The film causes excitement → V-ing.",explanationVI:"Phim gây hào hứng → V-ing."},
+{id:"L2-09",lesson:2,category:"present_participle",difficulty:"B2",type:"fill",
+ question:"______ (not / know) what to say, he stayed silent.",
+ answer:["not knowing","Not knowing"],explanationEN:"Negative participle clause: not + V-ing.",
+ explanationVI:"Mệnh đề phân từ phủ định: not + V-ing."},
+{id:"L2-10",lesson:2,category:"present_participle",difficulty:"B1",type:"fill",
+ question:"A ______ (grow) number of students use e-books.",
+ answer:["growing"],explanationEN:"'Growing' acts as an adjective here.",
+ explanationVI:"'Growing' làm tính từ bổ nghĩa cho 'number'."},
+
+/* ---------- Lesson 3 mini (10) ---------- */
+{id:"L3-01",lesson:3,category:"past_participle",difficulty:"B1",type:"fill",
+ question:"write → ______ (V3)", answer:["written"],
+ explanationEN:"Irregular: write – wrote – written.",explanationVI:"Bất quy tắc: write – wrote – written."},
+{id:"L3-02",lesson:3,category:"past_participle",difficulty:"B1",type:"fill",
+ question:"break → ______ (V3)", answer:["broken"],
+ explanationEN:"Irregular: break – broke – broken.",explanationVI:"Bất quy tắc: break – broke – broken."},
+{id:"L3-03",lesson:3,category:"past_participle",difficulty:"B1",type:"fill",
+ question:"go → ______ (V3)", answer:["gone"],
+ explanationEN:"Irregular: go – went – gone.",explanationVI:"Bất quy tắc: go – went – gone."},
+{id:"L3-04",lesson:3,category:"past_participle",difficulty:"B1",type:"mcq",
+ question:"The window ______ by a football yesterday.",
+ options:["broke","breaks","was broken","is breaking"],answer:"was broken",
+ explanationEN:"Passive voice: be + V3.",explanationVI:"Bị động: be + V3."},
+{id:"L3-05",lesson:3,category:"past_participle",difficulty:"B1",type:"mcq",
+ question:"I have ______ my homework.",
+ options:["finish","finishing","finished","finishes"],answer:"finished",
+ explanationEN:"Perfect tense: have + V3.",explanationVI:"Hoàn thành: have + V3."},
+{id:"L3-06",lesson:3,category:"past_participle",difficulty:"B2",type:"mcq",
+ question:"The documents ______ yesterday are on the desk.",
+ options:["submitting","submitted","submit","submits"],answer:"submitted",
+ explanationEN:"Reduced passive relative clause: noun + V3.",explanationVI:"Mệnh đề quan hệ rút gọn bị động: noun + V3."},
+{id:"L3-07",lesson:3,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"She was ______ after the long journey.",
+ options:["tiring","tired","tire","tires"],answer:"tired",
+ explanationEN:"A person feels tired → V3.",explanationVI:"Người cảm thấy mệt → V3."},
+{id:"L3-08",lesson:3,category:"past_participle",difficulty:"B2",type:"fill",
+ question:"The letter ______ (write) by hand was hard to read.",
+ answer:["written"],explanationEN:"Passive meaning → V3.",explanationVI:"Nghĩa bị động → V3."},
+{id:"L3-09",lesson:3,category:"past_participle",difficulty:"B1",type:"mcq",
+ question:"We were ______ by the news.",
+ options:["surprising","surprised","surprise","surprisingly"],answer:"surprised",
+ explanationEN:"People feel surprised → V3.",explanationVI:"Người cảm thấy ngạc nhiên → V3."},
+{id:"L3-10",lesson:3,category:"past_participle",difficulty:"B1",type:"fill",
+ question:"The money ______ (steal) from the safe was recovered.",
+ answer:["stolen"],explanationEN:"Passive meaning → V3.",explanationVI:"Nghĩa bị động → V3."},
+
+/* ---------- Lesson 4 mini (20) ---------- */
+{id:"L4-01",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"The lecture was very ______.",
+ options:["bored","boring","bore","bores"],answer:"boring",
+ explanationEN:"The lecture causes boredom → V-ing.",explanationVI:"Bài giảng gây nhàm chán → V-ing."},
+{id:"L4-02",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"I felt ______ during the lecture.",
+ options:["boring","bored","bore","bores"],answer:"bored",
+ explanationEN:"I experienced boredom → V3.",explanationVI:"Tôi cảm thấy chán → V3."},
+{id:"L4-03",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"The journey was really ______.",
+ options:["tired","tiring","tire","tires"],answer:"tiring",
+ explanationEN:"The journey causes tiredness → V-ing.",explanationVI:"Chuyến đi gây mệt → V-ing."},
+{id:"L4-04",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"We were ______ after the journey.",
+ options:["tiring","tired","tire","tires"],answer:"tired",
+ explanationEN:"We felt tired → V3.",explanationVI:"Chúng tôi cảm thấy mệt → V3."},
+{id:"L4-05",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"The instructions were very ______.",
+ options:["confused","confusing","confuse","confuses"],answer:"confusing",
+ explanationEN:"Instructions cause confusion → V-ing.",explanationVI:"Hướng dẫn gây bối rối → V-ing."},
+{id:"L4-06",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"I felt ______ (confuse) by the instructions.",
+ answer:["confused"],explanationEN:"I felt confused → V3.",explanationVI:"Tôi cảm thấy bối rối → V3."},
+{id:"L4-07",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"The news was very ______.",
+ options:["surprised","surprising","surprise","surprises"],answer:"surprising",
+ explanationEN:"The news causes surprise → V-ing.",explanationVI:"Tin tức gây ngạc nhiên → V-ing."},
+{id:"L4-08",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"She was ______ (surprise) by the news.",
+ answer:["surprised"],explanationEN:"She felt surprised → V3.",explanationVI:"Cô ấy cảm thấy ngạc nhiên → V3."},
+{id:"L4-09",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"His behaviour was really ______.",
+ options:["disappointed","disappointing","disappoint","disappoints"],answer:"disappointing",
+ explanationEN:"His behaviour causes disappointment → V-ing.",explanationVI:"Hành vi của anh ấy gây thất vọng → V-ing."},
+{id:"L4-10",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"I was ______ (disappoint) with the result.",
+ answer:["disappointed"],explanationEN:"I felt disappointed → V3.",explanationVI:"Tôi cảm thấy thất vọng → V3."},
+{id:"L4-11",lesson:4,category:"ving_vs_v3",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'The film was very interested.'",
+ answer:["The film was very interesting."],
+ explanationEN:"The film causes interest → V-ing.",explanationVI:"Phim gây hứng thú → V-ing (interesting)."},
+{id:"L4-12",lesson:4,category:"ving_vs_v3",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'I am very boring with this book.'",
+ answer:["I am very bored with this book."],
+ explanationEN:"A person feels bored → V3.",explanationVI:"Người cảm thấy chán → V3 (bored)."},
+{id:"L4-13",lesson:4,category:"ving_vs_v3",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'She felt embarrassing when she made the mistake.'",
+ answer:["She felt embarrassed when she made the mistake."],
+ explanationEN:"A person feels embarrassed → V3.",explanationVI:"Người cảm thấy xấu hổ → V3 (embarrassed)."},
+{id:"L4-14",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"The instructions were so ______ that I had to ask for help.",
+ options:["confused","confusing","confuse","confusion"],answer:"confusing",
+ explanationEN:"Instructions cause confusion → V-ing.",explanationVI:"Hướng dẫn gây bối rối → V-ing."},
+{id:"L4-15",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"The match was so ______ that the fans stood up.",
+ options:["excited","exciting","excite","excites"],answer:"exciting",
+ explanationEN:"The match causes excitement → V-ing.",explanationVI:"Trận đấu gây hào hứng → V-ing."},
+{id:"L4-16",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"The children were ______ (excite) about the trip.",
+ answer:["excited"],explanationEN:"Children feel excited → V3.",explanationVI:"Trẻ em cảm thấy hào hứng → V3."},
+{id:"L4-17",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"The film was so ______ (bore) that I fell asleep.",
+ answer:["boring"],explanationEN:"The film causes boredom → V-ing.",explanationVI:"Phim gây chán → V-ing."},
+{id:"L4-18",lesson:4,category:"ving_vs_v3",difficulty:"B2",type:"translate",
+ question:"Dịch sang tiếng Anh: 'Bài giảng thì nhàm chán và tôi cảm thấy buồn ngủ.'",
+ answer:["The lecture was boring and I felt sleepy.","The lecture was boring, and I felt sleepy."],
+ explanationEN:"'Boring' describes the lecture; 'sleepy' describes the listener.",
+ explanationVI:"'Boring' mô tả bài giảng; 'sleepy' mô tả người nghe."},
+{id:"L4-19",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"The story was really ______ (frighten).",
+ answer:["frightening"],explanationEN:"The story causes fear → V-ing.",explanationVI:"Câu chuyện gây sợ → V-ing."},
+{id:"L4-20",lesson:4,category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"The children were ______ (frighten) by the noise.",
+ answer:["frightened"],explanationEN:"Children felt frightened → V3.",explanationVI:"Trẻ em cảm thấy sợ → V3."},
+
+/* ---------- Lesson 5 mini (15) ---------- */
+{id:"L5-01",lesson:5,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"She looks ______ after the long meeting.",
+ options:["tiring","tired","tire","tiringly"],answer:"tired",
+ explanationEN:"After 'look' (linking verb), an adjective shows how someone appears.",
+ explanationVI:"Sau 'look' dùng tính từ → 'tired' mô tả trạng thái của người."},
+{id:"L5-02",lesson:5,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"The situation seems ______ to new employees.",
+ options:["confused","confusing","confuse","confusion"],answer:"confusing",
+ explanationEN:"The situation causes confusion → V-ing.",explanationVI:"Tình huống gây bối rối → V-ing."},
+{id:"L5-03",lesson:5,category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"An ______ (excite) match kept fans on their feet.",
+ answer:["exciting"],explanationEN:"The match causes excitement → V-ing.",explanationVI:"Trận đấu gây hào hứng → V-ing."},
+{id:"L5-04",lesson:5,category:"past_participle",difficulty:"B1",type:"fill",
+ question:"The ______ (damage) car was taken to the garage.",
+ answer:["damaged"],explanationEN:"Passive meaning → V3.",explanationVI:"Nghĩa bị động → V3."},
+{id:"L5-05",lesson:5,category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"His ______ (encourage) words helped me a lot.",
+ answer:["encouraging"],explanationEN:"Active meaning → V-ing.",explanationVI:"Nghĩa chủ động → V-ing."},
+{id:"L5-06",lesson:5,category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"I felt ______ (relieve) when the exam finished.",
+ answer:["relieved"],explanationEN:"The speaker felt relieved → V3.",explanationVI:"Người nói cảm thấy nhẹ nhõm → V3."},
+{id:"L5-07",lesson:5,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"The results were ______.",
+ options:["disappointed","disappointing","disappoint","disappoints"],answer:"disappointing",
+ explanationEN:"Results cause disappointment → V-ing.",explanationVI:"Kết quả gây thất vọng → V-ing."},
+{id:"L5-08",lesson:5,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"I was ______ with the results.",
+ options:["disappointing","disappointed","disappoint","disappointment"],answer:"disappointed",
+ explanationEN:"I felt disappointed → V3.",explanationVI:"Tôi cảm thấy thất vọng → V3."},
+{id:"L5-09",lesson:5,category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"This is a ______ (write) report.",
+ answer:["written"],explanationEN:"Passive/adjective meaning before noun → V3.",explanationVI:"Nghĩa bị động đứng trước danh từ → V3."},
+{id:"L5-10",lesson:5,category:"ving_vs_v3",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'The game was very excited.'",
+ answer:["The game was very exciting."],
+ explanationEN:"The game causes excitement → V-ing.",explanationVI:"Trận đấu gây hào hứng → V-ing."},
+{id:"L5-11",lesson:5,category:"ving_vs_v3",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'I am interesting in learning Japanese.'",
+ answer:["I am interested in learning Japanese."],
+ explanationEN:"A person feels interested → V3.",explanationVI:"Người cảm thấy hứng thú → V3."},
+{id:"L5-12",lesson:5,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"The film was so ______ that I watched it twice.",
+ options:["interested","interesting","interest","interestingly"],answer:"interesting",
+ explanationEN:"The film causes interest → V-ing.",explanationVI:"Phim gây hứng thú → V-ing."},
+{id:"L5-13",lesson:5,category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"We were all ______ by the performance.",
+ options:["amazing","amazed","amaze","amazes"],answer:"amazed",
+ explanationEN:"We felt amazed → V3.",explanationVI:"Chúng tôi cảm thấy kinh ngạc → V3."},
+{id:"L5-14",lesson:5,category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"The magic show was ______ (amaze).",
+ answer:["amazing"],explanationEN:"The show causes amazement → V-ing.",explanationVI:"Buổi biểu diễn gây kinh ngạc → V-ing."},
+{id:"L5-15",lesson:5,category:"ving_vs_v3",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'The children felt tiring after the trip.'",
+ answer:["The children felt tired after the trip."],
+ explanationEN:"Children feel tired → V3.",explanationVI:"Trẻ em cảm thấy mệt → V3."},
+
+/* ---------- Lesson 6 mini (20) ---------- */
+{id:"L6-01",lesson:6,category:"reduced_relative",difficulty:"B1",type:"reduced",
+ question:"Rút gọn: 'The woman who is talking to my teacher is my mother.'",
+ answer:["The woman talking to my teacher is my mother."],
+ explanationEN:"Active reduced relative clause: noun + V-ing.",explanationVI:"Mệnh đề quan hệ rút gọn chủ động: noun + V-ing."},
+{id:"L6-02",lesson:6,category:"reduced_relative",difficulty:"B1",type:"reduced",
+ question:"Rút gọn: 'The documents which were submitted yesterday are on the desk.'",
+ answer:["The documents submitted yesterday are on the desk."],
+ explanationEN:"Passive reduced relative clause: noun + V3.",explanationVI:"Mệnh đề quan hệ rút gọn bị động: noun + V3."},
+{id:"L6-03",lesson:6,category:"reduced_relative",difficulty:"B2",type:"reduced",
+ question:"Rút gọn: 'The house which was built in 1890 is now a museum.'",
+ answer:["The house built in 1890 is now a museum."],
+ explanationEN:"Passive reduced relative.",explanationVI:"Rút gọn mệnh đề quan hệ bị động."},
+{id:"L6-04",lesson:6,category:"reduced_relative",difficulty:"B1",type:"reduced",
+ question:"Rút gọn: 'Students who study abroad often miss home.'",
+ answer:["Students studying abroad often miss home."],
+ explanationEN:"Active reduced relative.",explanationVI:"Rút gọn mệnh đề quan hệ chủ động."},
+{id:"L6-05",lesson:6,category:"reduced_relative",difficulty:"B2",type:"reduced",
+ question:"Rút gọn: 'The car which was repaired last week is running smoothly.'",
+ answer:["The car repaired last week is running smoothly."],
+ explanationEN:"Passive reduced relative.",explanationVI:"Rút gọn mệnh đề quan hệ bị động."},
+{id:"L6-06",lesson:6,category:"reduced_relative",difficulty:"B1",type:"mcq",
+ question:"The man ______ near the door is my teacher.",
+ options:["stand","standing","stood","stands"],answer:"standing",
+ explanationEN:"Active reduction → V-ing.",explanationVI:"Rút gọn chủ động → V-ing."},
+{id:"L6-07",lesson:6,category:"reduced_relative",difficulty:"B2",type:"mcq",
+ question:"The letter ______ by hand was difficult to read.",
+ options:["writing","written","wrote","writes"],answer:"written",
+ explanationEN:"Passive reduction → V3.",explanationVI:"Rút gọn bị động → V3."},
+{id:"L6-08",lesson:6,category:"reduced_relative",difficulty:"B1",type:"fill",
+ question:"The man ______ (injure) in the accident is recovering well.",
+ answer:["injured"],explanationEN:"Passive meaning → V3.",explanationVI:"Nghĩa bị động → V3."},
+{id:"L6-09",lesson:6,category:"reduced_relative",difficulty:"B1",type:"fill",
+ question:"The woman ______ (talk) to my teacher is my mother.",
+ answer:["talking"],explanationEN:"Active reduction → V-ing.",explanationVI:"Rút gọn chủ động → V-ing."},
+{id:"L6-10",lesson:6,category:"reduced_relative",difficulty:"B1",type:"fill",
+ question:"The children ______ (play) in the yard are my cousins.",
+ answer:["playing"],explanationEN:"Active reduction → V-ing.",explanationVI:"Rút gọn chủ động → V-ing."},
+{id:"L6-11",lesson:6,category:"reduced_relative",difficulty:"B2",type:"fill",
+ question:"The report ______ (write) by the intern was submitted on time.",
+ answer:["written"],explanationEN:"Passive meaning → V3.",explanationVI:"Nghĩa bị động → V3."},
+{id:"L6-12",lesson:6,category:"reduced_relative",difficulty:"B2",type:"fill",
+ question:"The students ______ (study) hard will succeed.",
+ answer:["studying"],explanationEN:"Active reduction → V-ing.",explanationVI:"Rút gọn chủ động → V-ing."},
+{id:"L6-13",lesson:6,category:"reduced_relative",difficulty:"B2",type:"reduced",
+ question:"Rút gọn: 'The bridge which was destroyed in the war has been rebuilt.'",
+ answer:["The bridge destroyed in the war has been rebuilt."],
+ explanationEN:"Passive reduced relative.",explanationVI:"Rút gọn bị động."},
+{id:"L6-14",lesson:6,category:"reduced_relative",difficulty:"B2",type:"reduced",
+ question:"Rút gọn: 'The musician who is playing the piano is very famous.'",
+ answer:["The musician playing the piano is very famous."],
+ explanationEN:"Active reduced relative.",explanationVI:"Rút gọn chủ động."},
+{id:"L6-15",lesson:6,category:"reduced_relative",difficulty:"B2",type:"reduced",
+ question:"Rút gọn: 'The books which were borrowed from the library must be returned.'",
+ answer:["The books borrowed from the library must be returned."],
+ explanationEN:"Passive reduced relative.",explanationVI:"Rút gọn bị động."},
+{id:"L6-16",lesson:6,category:"reduced_relative",difficulty:"B1",type:"mcq",
+ question:"The child ______ in the corner is my nephew.",
+ options:["cry","crying","cried","cries"],answer:"crying",
+ explanationEN:"Active reduction → V-ing.",explanationVI:"Rút gọn chủ động → V-ing."},
+{id:"L6-17",lesson:6,category:"reduced_relative",difficulty:"B2",type:"mcq",
+ question:"The cheque ______ by the manager was cashed immediately.",
+ options:["signing","signed","sign","signs"],answer:"signed",
+ explanationEN:"Passive reduction → V3.",explanationVI:"Rút gọn bị động → V3."},
+{id:"L6-18",lesson:6,category:"reduced_relative",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'The man is standing there is my teacher.'",
+ answer:["The man standing there is my teacher."],
+ explanationEN:"When reducing, remove 'is' and use V-ing directly.",explanationVI:"Khi rút gọn, bỏ 'is' và dùng V-ing ngay sau danh từ."},
+{id:"L6-19",lesson:6,category:"reduced_relative",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'The girl who she is dancing is my sister.'",
+ answer:["The girl dancing is my sister."],
+ explanationEN:"Don't leave a redundant pronoun in reduced clauses.",explanationVI:"Không để lại đại từ quan hệ trong mệnh đề rút gọn."},
+{id:"L6-20",lesson:6,category:"reduced_relative",difficulty:"B2",type:"reduced",
+ question:"Rút gọn: 'The song which was composed by Mozart is very popular.'",
+ answer:["The song composed by Mozart is very popular."],
+ explanationEN:"Passive reduced relative.",explanationVI:"Rút gọn bị động."},
+
+/* ---------- Lesson 7 mini (20) ---------- */
+{id:"L7-01",lesson:7,category:"participle_clause",difficulty:"B1",type:"clause",
+ question:"Viết lại: 'While I was walking to school, I saw an old friend.' (bắt đầu bằng Walking)",
+ answer:["Walking to school, I saw an old friend."],
+ explanationEN:"Present participle clause of time.",explanationVI:"Mệnh đề phân từ chỉ thời gian."},
+{id:"L7-02",lesson:7,category:"participle_clause",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'Because he knew the area well, he showed us the way.'",
+ answer:["Knowing the area well, he showed us the way."],
+ explanationEN:"Present participle clause of reason.",explanationVI:"Mệnh đề phân từ chỉ lý do."},
+{id:"L7-03",lesson:7,category:"participle_clause",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'The building was built in 1890, and it is now a museum.'",
+ answer:["Built in 1890, the building is now a museum."],
+ explanationEN:"Past participle clause (passive).",explanationVI:"Mệnh đề phân từ quá khứ (bị động)."},
+{id:"L7-04",lesson:7,category:"participle_clause",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'The house is surrounded by trees, so it is peaceful.'",
+ answer:["Surrounded by trees, the house is peaceful."],
+ explanationEN:"Past participle clause.",explanationVI:"Mệnh đề phân từ quá khứ."},
+{id:"L7-05",lesson:7,category:"participle_clause",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'Because I didn't know what to say, I stayed silent.'",
+ answer:["Not knowing what to say, I stayed silent."],
+ explanationEN:"Negative participle clause.",explanationVI:"Mệnh đề phân từ phủ định."},
+{id:"L7-06",lesson:7,category:"participle_clause",difficulty:"B1",type:"mcq",
+ question:"______ to school, I saw an old friend.",
+ options:["Walk","Walking","Walked","To walk"],answer:"Walking",
+ explanationEN:"Present participle clause.",explanationVI:"Mệnh đề phân từ hiện tại."},
+{id:"L7-07",lesson:7,category:"participle_clause",difficulty:"B2",type:"mcq",
+ question:"______ in 1890, the building is now a museum.",
+ options:["Build","Building","Built","To build"],answer:"Built",
+ explanationEN:"Past participle clause (passive).",explanationVI:"Mệnh đề phân từ quá khứ."},
+{id:"L7-08",lesson:7,category:"participle_clause",difficulty:"B2",type:"mcq",
+ question:"______ by trees, the house is peaceful.",
+ options:["Surrounding","Surrounded","Surround","To surround"],answer:"Surrounded",
+ explanationEN:"Past participle clause (passive).",explanationVI:"Mệnh đề phân từ quá khứ."},
+{id:"L7-09",lesson:7,category:"participle_clause",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Known the area well, he showed us the way.'",
+ answer:["Knowing the area well, he showed us the way."],
+ explanationEN:"Active meaning → V-ing.",explanationVI:"Nghĩa chủ động → V-ing."},
+{id:"L7-10",lesson:7,category:"participle_clause",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Building in 1890, the building is now a museum.'",
+ answer:["Built in 1890, the building is now a museum."],
+ explanationEN:"Passive meaning → V3.",explanationVI:"Nghĩa bị động → V3."},
+{id:"L7-11",lesson:7,category:"participle_clause",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'Because she was tired, she went to bed early.'",
+ answer:["Feeling tired, she went to bed early.","Being tired, she went to bed early."],
+ explanationEN:"Present participle clause of reason.",explanationVI:"Mệnh đề phân từ chỉ lý do."},
+{id:"L7-12",lesson:7,category:"participle_clause",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'Because the book was written in simple English, it is suitable for beginners.'",
+ answer:["Written in simple English, the book is suitable for beginners."],
+ explanationEN:"Past participle clause.",explanationVI:"Mệnh đề phân từ quá khứ."},
+{id:"L7-13",lesson:7,category:"participle_clause",difficulty:"B1",type:"mcq",
+ question:"She sat by the window, ______ a novel.",
+ options:["read","reading","reads","to read"],answer:"reading",
+ explanationEN:"Present participle for accompanying action.",explanationVI:"Mệnh đề phân từ chỉ hành động kèm theo."},
+{id:"L7-14",lesson:7,category:"participle_clause",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'After I had finished my work, I went home.' (dùng After + V-ing)",
+ answer:["After finishing my work, I went home.","After having finished my work, I went home."],
+ explanationEN:"After + V-ing.",explanationVI:"Cấu trúc after + V-ing."},
+{id:"L7-15",lesson:7,category:"participle_clause",difficulty:"B2",type:"fill",
+ question:"______ (know) the area well, he showed us the way.",
+ answer:["Knowing"],explanationEN:"Present participle clause.",explanationVI:"Mệnh đề phân từ hiện tại."},
+{id:"L7-16",lesson:7,category:"participle_clause",difficulty:"B2",type:"fill",
+ question:"______ (surround) by trees, the house is peaceful.",
+ answer:["Surrounded"],explanationEN:"Past participle clause.",explanationVI:"Mệnh đề phân từ quá khứ."},
+{id:"L7-17",lesson:7,category:"participle_clause",difficulty:"B2",type:"fill",
+ question:"______ (not / know) what to do, I called my friend.",
+ answer:["Not knowing"],explanationEN:"Negative participle clause.",explanationVI:"Mệnh đề phân từ phủ định."},
+{id:"L7-18",lesson:7,category:"participle_clause",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Walking home, my phone rang.'",
+ answer:["Walking home, I heard my phone ring."],
+ explanationEN:"The subject of the participle must match the main clause subject.",explanationVI:"Chủ ngữ của mệnh đề phân từ phải trùng với chủ ngữ mệnh đề chính."},
+{id:"L7-19",lesson:7,category:"participle_clause",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'Since the letter was written in French, I couldn't read it.'",
+ answer:["Written in French, the letter couldn't be read by me.","Written in French, I couldn't read the letter."],
+ explanationEN:"Past participle clause.",explanationVI:"Mệnh đề phân từ quá khứ."},
+{id:"L7-20",lesson:7,category:"participle_clause",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'Because I was impressed by her speech, I voted for her.'",
+ answer:["Impressed by her speech, I voted for her."],
+ explanationEN:"Past participle clause (passive meaning for the subject).",explanationVI:"Mệnh đề phân từ quá khứ — chủ ngữ 'I' mang nghĩa bị động (được gây ấn tượng)."},
+
+/* ---------- Lesson 8 mini (15) ---------- */
+{id:"L8-01",lesson:8,category:"perfect_participle",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'After I had finished my homework, I watched television.'",
+ answer:["Having finished my homework, I watched television."],
+ explanationEN:"Perfect participle clause: having + V3.",explanationVI:"Mệnh đề phân từ hoàn thành: having + V3."},
+{id:"L8-02",lesson:8,category:"perfect_participle",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'After we had eaten dinner, we went for a walk.'",
+ answer:["Having eaten dinner, we went for a walk."],
+ explanationEN:"Perfect participle clause.",explanationVI:"Mệnh đề phân từ hoàn thành."},
+{id:"L8-03",lesson:8,category:"perfect_participle",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'Because they had been warned about the storm, the villagers evacuated.'",
+ answer:["Having been warned about the storm, the villagers evacuated."],
+ explanationEN:"Passive perfect participle clause.",explanationVI:"Mệnh đề phân từ hoàn thành bị động."},
+{id:"L8-04",lesson:8,category:"perfect_participle",difficulty:"B2",type:"fill",
+ question:"______ (finish) my homework, I watched television.",
+ answer:["Having finished"],explanationEN:"having + V3.",explanationVI:"having + V3."},
+{id:"L8-05",lesson:8,category:"perfect_participle",difficulty:"B2",type:"fill",
+ question:"______ (be / inform) of the changes, the employees adjusted their schedules.",
+ answer:["Having been informed"],explanationEN:"having been + V3.",explanationVI:"having been + V3."},
+{id:"L8-06",lesson:8,category:"perfect_participle",difficulty:"B2",type:"mcq",
+ question:"______ finished her work, she went home.",
+ options:["Have","Having","Had","Has"],answer:"Having",
+ explanationEN:"Perfect participle: having + V3.",explanationVI:"Mệnh đề phân từ hoàn thành: having + V3."},
+{id:"L8-07",lesson:8,category:"perfect_participle",difficulty:"B2",type:"mcq",
+ question:"______ been warned about the storm, the villagers evacuated.",
+ options:["Have","Having","Had","Has"],answer:"Having",
+ explanationEN:"having been + V3.",explanationVI:"having been + V3."},
+{id:"L8-08",lesson:8,category:"perfect_participle",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Have finished the report, she left the office.'",
+ answer:["Having finished the report, she left the office."],
+ explanationEN:"Use 'having', not 'have'.",explanationVI:"Dùng 'having', không dùng 'have'."},
+{id:"L8-09",lesson:8,category:"perfect_participle",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Having finished the report, the email was sent.'",
+ answer:["Having finished the report, she sent the email."],
+ explanationEN:"Subject must match.",explanationVI:"Chủ ngữ phải trùng nhau."},
+{id:"L8-10",lesson:8,category:"perfect_participle",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'After she had lived in London for years, she knew the city well.'",
+ answer:["Having lived in London for years, she knew the city well."],
+ explanationEN:"Perfect participle clause.",explanationVI:"Mệnh đề phân từ hoàn thành."},
+{id:"L8-11",lesson:8,category:"perfect_participle",difficulty:"B2",type:"fill",
+ question:"______ (eat) dinner, we went for a walk.",
+ answer:["Having eaten"],explanationEN:"having + V3.",explanationVI:"having + V3."},
+{id:"L8-12",lesson:8,category:"perfect_participle",difficulty:"B2",type:"mcq",
+ question:"______ the report, she left the office.",
+ options:["Finish","Finishing","Having finished","Finished"],answer:"Having finished",
+ explanationEN:"Perfect participle for earlier action.",explanationVI:"Mệnh đề phân từ hoàn thành cho hành động xảy ra trước."},
+{id:"L8-13",lesson:8,category:"perfect_participle",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'After the employees had been informed of the changes, they adjusted their schedules.'",
+ answer:["Having been informed of the changes, the employees adjusted their schedules."],
+ explanationEN:"Passive perfect participle clause.",explanationVI:"Mệnh đề phân từ hoàn thành bị động."},
+{id:"L8-14",lesson:8,category:"perfect_participle",difficulty:"B2",type:"fill",
+ question:"______ (live) in London for years, she knows the city well.",
+ answer:["Having lived"],explanationEN:"having + V3.",explanationVI:"having + V3."},
+{id:"L8-15",lesson:8,category:"perfect_participle",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Having been finished the report, she left.'",
+ answer:["Having finished the report, she left."],
+ explanationEN:"'Having been + V3' is only for passive meaning.",explanationVI:"'Having been + V3' chỉ dùng khi mang nghĩa bị động."},
+
+/* ---------- Lesson 9 mini (15) ---------- */
+{id:"L9-01",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Walking to school, the rain started.'",
+ answer:["Walking to school, I got caught in the rain.","While I was walking to school, the rain started."],
+ explanationEN:"Dangling participle — the implied subject must match the main clause.",explanationVI:"Lỗi phân từ treo — chủ ngữ ẩn phải trùng chủ ngữ mệnh đề chính."},
+{id:"L9-02",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Having finished the report, the email was sent.'",
+ answer:["Having finished the report, she sent the email."],
+ explanationEN:"The person who finished the report must be the subject.",explanationVI:"Người hoàn thành báo cáo phải là chủ ngữ."},
+{id:"L9-03",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Built in 1890, tourists visit the building.'",
+ answer:["Built in 1890, the building attracts many tourists.","Built in 1890, the building is visited by many tourists."],
+ explanationEN:"The building was built — it must be the subject.",explanationVI:"Tòa nhà được xây — nó phải là chủ ngữ."},
+{id:"L9-04",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Not knowing the answer, the question was left blank.'",
+ answer:["Not knowing the answer, I left the question blank."],
+ explanationEN:"The person doesn't know the answer.",explanationVI:"Người không biết câu trả lời mới là chủ ngữ."},
+{id:"L9-05",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Looking out of the window, the garden was beautiful.'",
+ answer:["Looking out of the window, I saw that the garden was beautiful."],
+ explanationEN:"The person looked out of the window.",explanationVI:"Người nhìn ra cửa sổ mới là chủ ngữ."},
+{id:"L9-06",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Exhausted after the trip, the bed felt wonderful.'",
+ answer:["Exhausted after the trip, I found the bed wonderful."],
+ explanationEN:"The person felt exhausted.",explanationVI:"Người cảm thấy mệt mới là chủ ngữ."},
+{id:"L9-07",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Driving to work, the radio was playing.'",
+ answer:["Driving to work, I was listening to the radio."],
+ explanationEN:"The person was driving.",explanationVI:"Người lái xe mới là chủ ngữ."},
+{id:"L9-08",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Interested in the film, the popcorn was eaten by me.'",
+ answer:["Interested in the film, I ate the popcorn."],
+ explanationEN:"The person is interested.",explanationVI:"Người cảm thấy hứng thú mới là chủ ngữ."},
+{id:"L9-09",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Frightened by the noise, the child began to cry.' (nếu câu này đúng, viết lại y hệt, nếu sai hãy sửa)",
+ answer:["Frightened by the noise, the child began to cry."],
+ explanationEN:"This sentence is already correct — the child is the implied subject.",explanationVI:"Câu này đã đúng — chủ ngữ ẩn là 'the child' trùng chủ ngữ mệnh đề chính."},
+{id:"L9-10",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Having eaten too much, my stomach hurt.'",
+ answer:["Having eaten too much, I had a stomachache."],
+ explanationEN:"The person ate too much.",explanationVI:"Người ăn quá nhiều mới là chủ ngữ."},
+{id:"L9-11",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Tired from the long walk, the bed was very comfortable.'",
+ answer:["Tired from the long walk, I found the bed very comfortable."],
+ explanationEN:"The person felt tired.",explanationVI:"Người cảm thấy mệt mới là chủ ngữ."},
+{id:"L9-12",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Sitting at the café, the coffee tasted delicious.'",
+ answer:["Sitting at the café, I found the coffee delicious."],
+ explanationEN:"The person was sitting.",explanationVI:"Người ngồi ở quán mới là chủ ngữ."},
+{id:"L9-13",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Riding my bike, the wind was strong.'",
+ answer:["Riding my bike, I felt the strong wind."],
+ explanationEN:"The person was riding the bike.",explanationVI:"Người đạp xe mới là chủ ngữ."},
+{id:"L9-14",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Reading the report, several mistakes were noticed by me.'",
+ answer:["Reading the report, I noticed several mistakes."],
+ explanationEN:"The person read the report.",explanationVI:"Người đọc báo cáo mới là chủ ngữ."},
+{id:"L9-15",lesson:9,category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Built by the Romans, we visited the wall.'",
+ answer:["Built by the Romans, the wall was visited by us.","Built by the Romans, the wall is impressive."],
+ explanationEN:"The wall was built by the Romans.",explanationVI:"Bức tường được xây bởi người La Mã."},
+
+/* ---------- Lesson 10 mini (25) ---------- */
+{id:"L10-01",lesson:10,category:"mixed",difficulty:"B1",type:"mcq",
+ question:"The match was so ______ that the fans stood up.",
+ options:["excited","exciting","excite","excitement"],answer:"exciting",
+ explanationEN:"The match causes excitement → V-ing.",explanationVI:"Trận đấu gây hào hứng → V-ing."},
+{id:"L10-02",lesson:10,category:"mixed",difficulty:"B2",type:"mcq",
+ question:"The window ______ by the storm last night.",
+ options:["broke","breaks","was broken","is breaking"],answer:"was broken",
+ explanationEN:"Passive voice.",explanationVI:"Câu bị động."},
+{id:"L10-03",lesson:10,category:"mixed",difficulty:"B2",type:"mcq",
+ question:"______ in 1890, the building is now a museum.",
+ options:["Build","Building","Built","To build"],answer:"Built",
+ explanationEN:"Past participle clause.",explanationVI:"Mệnh đề phân từ quá khứ."},
+{id:"L10-04",lesson:10,category:"mixed",difficulty:"B2",type:"mcq",
+ question:"______ finished her work, she went home.",
+ options:["Have","Having","Had","Has"],answer:"Having",
+ explanationEN:"Perfect participle.",explanationVI:"Mệnh đề phân từ hoàn thành."},
+{id:"L10-05",lesson:10,category:"mixed",difficulty:"B1",type:"mcq",
+ question:"She is ______ in learning Japanese.",
+ options:["interesting","interested","interest","interestingly"],answer:"interested",
+ explanationEN:"She feels interested → V3.",explanationVI:"Cô ấy cảm thấy hứng thú → V3."},
+{id:"L10-06",lesson:10,category:"mixed",difficulty:"B2",type:"fill",
+ question:"______ (surround) by trees, the house is peaceful.",
+ answer:["Surrounded"],explanationEN:"Past participle clause.",explanationVI:"Mệnh đề phân từ quá khứ."},
+{id:"L10-07",lesson:10,category:"mixed",difficulty:"B2",type:"fill",
+ question:"______ (not / know) what to do, I called my friend.",
+ answer:["Not knowing"],explanationEN:"Negative participle clause.",explanationVI:"Mệnh đề phân từ phủ định."},
+{id:"L10-08",lesson:10,category:"mixed",difficulty:"B2",type:"fill",
+ question:"______ (live) in London for years, she knows the city well.",
+ answer:["Having lived"],explanationEN:"Perfect participle.",explanationVI:"Mệnh đề phân từ hoàn thành."},
+{id:"L10-09",lesson:10,category:"mixed",difficulty:"B2",type:"reduced",
+ question:"Rút gọn: 'The woman who is talking to my teacher is my mother.'",
+ answer:["The woman talking to my teacher is my mother."],
+ explanationEN:"Active reduced relative.",explanationVI:"Rút gọn chủ động."},
+{id:"L10-10",lesson:10,category:"mixed",difficulty:"B2",type:"reduced",
+ question:"Rút gọn: 'The documents which were submitted yesterday are on the desk.'",
+ answer:["The documents submitted yesterday are on the desk."],
+ explanationEN:"Passive reduced relative.",explanationVI:"Rút gọn bị động."},
+{id:"L10-11",lesson:10,category:"mixed",difficulty:"B2",type:"clause",
+ question:"Viết lại dùng mệnh đề phân từ: 'Because he knew the area well, he showed us the way.'",
+ answer:["Knowing the area well, he showed us the way."],
+ explanationEN:"Present participle clause.",explanationVI:"Mệnh đề phân từ hiện tại."},
+{id:"L10-12",lesson:10,category:"mixed",difficulty:"B2",type:"clause",
+ question:"Viết lại dùng mệnh đề phân từ: 'After she had finished her work, she went home.'",
+ answer:["Having finished her work, she went home."],
+ explanationEN:"Perfect participle.",explanationVI:"Mệnh đề phân từ hoàn thành."},
+{id:"L10-13",lesson:10,category:"mixed",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Walking to school, the rain started.'",
+ answer:["Walking to school, I got caught in the rain."],
+ explanationEN:"Dangling participle.",explanationVI:"Lỗi phân từ treo."},
+{id:"L10-14",lesson:10,category:"mixed",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'The film was very interested.'",
+ answer:["The film was very interesting."],
+ explanationEN:"The film causes interest → V-ing.",explanationVI:"Phim gây hứng thú → V-ing."},
+{id:"L10-15",lesson:10,category:"mixed",difficulty:"B2",type:"translate",
+ question:"Dịch: 'Được xây cách đây hơn một thế kỷ, tòa nhà này hiện là một bảo tàng.'",
+ answer:["Built more than a century ago, this building is now a museum."],
+ explanationEN:"Past participle clause.",explanationVI:"Mệnh đề phân từ quá khứ."},
+{id:"L10-16",lesson:10,category:"mixed",difficulty:"B2",type:"translate",
+ question:"Dịch: 'Sau khi hoàn thành báo cáo, cô ấy rời văn phòng.'",
+ answer:["Having finished the report, she left the office."],
+ explanationEN:"Perfect participle clause.",explanationVI:"Mệnh đề phân từ hoàn thành."},
+{id:"L10-17",lesson:10,category:"mixed",difficulty:"B2",type:"translate",
+ question:"Dịch: 'Không biết phải làm gì, tôi đã gọi cho bạn tôi.'",
+ answer:["Not knowing what to do, I called my friend."],
+ explanationEN:"Negative participle clause.",explanationVI:"Mệnh đề phân từ phủ định."},
+{id:"L10-18",lesson:10,category:"mixed",difficulty:"B1",type:"mcq",
+ question:"The children were ______ about the trip.",
+ options:["exciting","excited","excite","excitement"],answer:"excited",
+ explanationEN:"Children feel excited → V3.",explanationVI:"Trẻ em cảm thấy hào hứng → V3."},
+{id:"L10-19",lesson:10,category:"mixed",difficulty:"B2",type:"fill",
+ question:"The ______ (steal) bicycle was found near the park.",
+ answer:["stolen"],explanationEN:"Passive meaning → V3.",explanationVI:"Nghĩa bị động → V3."},
+{id:"L10-20",lesson:10,category:"mixed",difficulty:"B2",type:"fill",
+ question:"The ______ (smile) girl waved at us.",
+ answer:["smiling"],explanationEN:"Active meaning → V-ing.",explanationVI:"Nghĩa chủ động → V-ing."},
+{id:"L10-21",lesson:10,category:"mixed",difficulty:"B2",type:"mcq",
+ question:"______ the report, she left the office.",
+ options:["Finish","Finishing","Having finished","Finished"],answer:"Having finished",
+ explanationEN:"Perfect participle for prior action.",explanationVI:"Mệnh đề phân từ hoàn thành cho hành động xảy ra trước."},
+{id:"L10-22",lesson:10,category:"mixed",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Having finished the report, the email was sent.'",
+ answer:["Having finished the report, she sent the email."],
+ explanationEN:"Dangling participle.",explanationVI:"Lỗi phân từ treo."},
+{id:"L10-23",lesson:10,category:"mixed",difficulty:"B2",type:"clause",
+ question:"Viết lại dùng mệnh đề phân từ: 'The book was written in simple English, so it is suitable for beginners.'",
+ answer:["Written in simple English, the book is suitable for beginners."],
+ explanationEN:"Past participle clause.",explanationVI:"Mệnh đề phân từ quá khứ."},
+{id:"L10-24",lesson:10,category:"mixed",difficulty:"B2",type:"reduced",
+ question:"Rút gọn: 'The bridge which was destroyed in the war has been rebuilt.'",
+ answer:["The bridge destroyed in the war has been rebuilt."],
+ explanationEN:"Passive reduced relative.",explanationVI:"Rút gọn bị động."},
+{id:"L10-25",lesson:10,category:"mixed",difficulty:"B2",type:"translate",
+ question:"Dịch: 'Sau khi được cảnh báo về cơn bão, dân làng đã sơ tán.'",
+ answer:["Having been warned about the storm, the villagers evacuated."],
+ explanationEN:"Passive perfect participle.",explanationVI:"Mệnh đề phân từ hoàn thành bị động."},
+
+/* ---------- Extra practice bank for Practice Center ---------- */
+{id:"P-01",category:"present_participle",difficulty:"B1",type:"mcq",
+ question:"The man ______ near the door is my teacher.",
+ options:["stand","standing","stood","stands"],answer:"standing",
+ explanationEN:"Active reduced relative clause.",explanationVI:"Mệnh đề quan hệ rút gọn chủ động."},
+{id:"P-02",category:"present_participle",difficulty:"B1",type:"mcq",
+ question:"She is ______ in the office right now.",
+ options:["works","working","worked","work"],answer:"working",
+ explanationEN:"Present continuous: be + V-ing.",explanationVI:"Hiện tại tiếp diễn: be + V-ing."},
+{id:"P-03",category:"present_participle",difficulty:"B1",type:"fill",
+ question:"The ______ (rise) sun was beautiful.",
+ answer:["rising"],explanationEN:"V-ing adjective before noun.",explanationVI:"Tính từ V-ing trước danh từ."},
+{id:"P-04",category:"present_participle",difficulty:"B2",type:"fill",
+ question:"______ (walk) home, I saw a beautiful sunset.",
+ answer:["Walking"],explanationEN:"Present participle clause.",explanationVI:"Mệnh đề phân từ hiện tại."},
+{id:"P-05",category:"past_participle",difficulty:"B1",type:"mcq",
+ question:"The letter ______ by hand was difficult to read.",
+ options:["writing","written","wrote","writes"],answer:"written",
+ explanationEN:"Passive meaning → V3.",explanationVI:"Nghĩa bị động → V3."},
+{id:"P-06",category:"past_participle",difficulty:"B1",type:"fill",
+ question:"The ______ (break) window needs to be repaired.",
+ answer:["broken"],explanationEN:"V3 as adjective.",explanationVI:"V3 làm tính từ."},
+{id:"P-07",category:"past_participle",difficulty:"B1",type:"fill",
+ question:"The money ______ (steal) from the safe was recovered.",
+ answer:["stolen"],explanationEN:"Passive meaning → V3.",explanationVI:"Nghĩa bị động → V3."},
+{id:"P-08",category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"The instructions were very ______.",
+ options:["confused","confusing","confuse","confusion"],answer:"confusing",
+ explanationEN:"Instructions cause confusion → V-ing.",explanationVI:"Hướng dẫn gây bối rối → V-ing."},
+{id:"P-09",category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"I felt ______ (confuse) by the instructions.",
+ answer:["confused"],explanationEN:"I felt confused → V3.",explanationVI:"Tôi cảm thấy bối rối → V3."},
+{id:"P-10",category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"The journey was really ______.",
+ options:["tired","tiring","tire","tires"],answer:"tiring",
+ explanationEN:"The journey causes tiredness → V-ing.",explanationVI:"Chuyến đi gây mệt → V-ing."},
+{id:"P-11",category:"ving_vs_v3",difficulty:"B1",type:"mcq",
+ question:"We were ______ after the journey.",
+ options:["tiring","tired","tire","tires"],answer:"tired",
+ explanationEN:"We felt tired → V3.",explanationVI:"Chúng tôi cảm thấy mệt → V3."},
+{id:"P-12",category:"ving_vs_v3",difficulty:"B1",type:"fill",
+ question:"The film was so ______ (bore) that I fell asleep.",
+ answer:["boring"],explanationEN:"The film causes boredom → V-ing.",explanationVI:"Phim gây chán → V-ing."},
+{id:"P-13",category:"reduced_relative",difficulty:"B1",type:"reduced",
+ question:"Rút gọn: 'The woman who is talking to my teacher is my mother.'",
+ answer:["The woman talking to my teacher is my mother."],
+ explanationEN:"Active reduction.",explanationVI:"Rút gọn chủ động."},
+{id:"P-14",category:"reduced_relative",difficulty:"B2",type:"reduced",
+ question:"Rút gọn: 'The bridge which was destroyed in the war has been rebuilt.'",
+ answer:["The bridge destroyed in the war has been rebuilt."],
+ explanationEN:"Passive reduction.",explanationVI:"Rút gọn bị động."},
+{id:"P-15",category:"reduced_relative",difficulty:"B2",type:"reduced",
+ question:"Rút gọn: 'The song which was composed by Mozart is very popular.'",
+ answer:["The song composed by Mozart is very popular."],
+ explanationEN:"Passive reduction.",explanationVI:"Rút gọn bị động."},
+{id:"P-16",category:"participle_clause",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'Because she was tired, she went to bed early.'",
+ answer:["Feeling tired, she went to bed early.","Being tired, she went to bed early."],
+ explanationEN:"Participle clause of reason.",explanationVI:"Mệnh đề phân từ chỉ lý do."},
+{id:"P-17",category:"participle_clause",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'Since the letter was written in French, I couldn't read it.'",
+ answer:["Written in French, the letter couldn't be read by me.","Written in French, I couldn't read the letter."],
+ explanationEN:"Past participle clause.",explanationVI:"Mệnh đề phân từ quá khứ."},
+{id:"P-18",category:"perfect_participle",difficulty:"B2",type:"clause",
+ question:"Viết lại: 'After we had eaten dinner, we went for a walk.'",
+ answer:["Having eaten dinner, we went for a walk."],
+ explanationEN:"Perfect participle clause.",explanationVI:"Mệnh đề phân từ hoàn thành."},
+{id:"P-19",category:"perfect_participle",difficulty:"B2",type:"fill",
+ question:"______ (be / warn) about the storm, the villagers evacuated.",
+ answer:["Having been warned"],explanationEN:"having been + V3.",explanationVI:"having been + V3."},
+{id:"P-20",category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Exhausted after the trip, the bed felt wonderful.'",
+ answer:["Exhausted after the trip, I found the bed wonderful."],
+ explanationEN:"Subject must match.",explanationVI:"Chủ ngữ phải trùng nhau."},
+{id:"P-21",category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Having been finished the report, she left.'",
+ answer:["Having finished the report, she left."],
+ explanationEN:"'Having been + V3' is only passive.",explanationVI:"'Having been + V3' chỉ dùng khi bị động."},
+{id:"P-22",category:"error_correction",difficulty:"B2",type:"error",
+ question:"Sửa lỗi: 'Looking out of the window, the garden was beautiful.'",
+ answer:["Looking out of the window, I saw that the garden was beautiful."],
+ explanationEN:"Dangling participle.",explanationVI:"Lỗi phân từ treo."},
+{id:"P-23",category:"translation",difficulty:"B2",type:"translate",
+ question:"Dịch: 'Được viết bằng tiếng Anh đơn giản, cuốn sách phù hợp với người mới bắt đầu.'",
+ answer:["Written in simple English, the book is suitable for beginners."],
+ explanationEN:"Past participle clause.",explanationVI:"Mệnh đề phân từ quá khứ."},
+{id:"P-24",category:"translation",difficulty:"B2",type:"translate",
+ question:"Dịch: 'Sau khi đọc xong báo cáo, tôi phát hiện vài lỗi.'",
+ answer:["Having read the report, I noticed several mistakes."],
+ explanationEN:"Perfect participle clause.",explanationVI:"Mệnh đề phân từ hoàn thành."},
+{id:"P-25",category:"mixed",difficulty:"B2",type:"mcq",
+ question:"______ the area well, he showed us the way.",
+ options:["Know","Known","Knowing","To know"],answer:"Knowing",
+ explanationEN:"Present participle clause.",explanationVI:"Mệnh đề phân từ hiện tại."}
+];
+
+/* =======================================================================
+   3. MATCHING EXERCISES
+   ======================================================================= */
+const MATCHING = [
+{
+  id:"M1", category:"ving_vs_v3", difficulty:"B1",
+  title:"Ghép tính từ V-ing với nghĩa tiếng Việt",
+  pairs:[
+    {left:"interesting", right:"thú vị (gây hứng thú)"},
+    {left:"boring", right:"nhàm chán (gây chán)"},
+    {left:"exciting", right:"hấp dẫn (gây hào hứng)"},
+    {left:"confusing", right:"khó hiểu (gây bối rối)"},
+    {left:"tiring", right:"mệt mỏi (gây mệt)"}
+  ],
+  explanationEN:"V-ing adjectives describe the cause of a feeling.",
+  explanationVI:"Tính từ V-ing mô tả nguyên nhân gây ra cảm giác."
+},
+{
+  id:"M2", category:"ving_vs_v3", difficulty:"B1",
+  title:"Ghép tính từ V3/-ed với nghĩa tiếng Việt",
+  pairs:[
+    {left:"interested", right:"cảm thấy hứng thú"},
+    {left:"bored", right:"cảm thấy chán"},
+    {left:"excited", right:"cảm thấy hào hứng"},
+    {left:"confused", right:"cảm thấy bối rối"},
+    {left:"tired", right:"cảm thấy mệt"}
+  ],
+  explanationEN:"V3/-ed adjectives describe the person's feeling or state.",
+  explanationVI:"Tính từ V3/-ed mô tả cảm giác hoặc trạng thái của người."
+},
+{
+  id:"M3", category:"reduced_relative", difficulty:"B2",
+  title:"Ghép mệnh đề quan hệ đầy đủ với dạng rút gọn",
+  pairs:[
+    {left:"The woman who is talking to my teacher...", right:"The woman talking to my teacher..."},
+    {left:"The documents which were submitted yesterday...", right:"The documents submitted yesterday..."},
+    {left:"The house which was built in 1890...", right:"The house built in 1890..."},
+    {left:"Students who study abroad...", right:"Students studying abroad..."},
+    {left:"The letter which was written by hand...", right:"The letter written by hand..."}
+  ],
+  explanationEN:"Active → V-ing; Passive → V3.",
+  explanationVI:"Chủ động → V-ing; Bị động → V3."
+}
+];
+
+/* =======================================================================
+   4. COMPREHENSIVE TESTS
+   ======================================================================= */
+const TESTS = [
+{
+  id:"T1", title:"B1 Foundation Test", titleVI:"Bài kiểm tra nền tảng B1", time:25*60,
+  desc:"30 câu · Trắc nghiệm, điền từ, V-ing vs V3 · Các cấu trúc phân từ cơ bản",
+  questionIds:[
+    "L1-01","L1-02","L1-03","L1-04","L1-05",
+    "L2-05","L2-06","L2-08","L3-04","L3-05",
+    "L4-01","L4-02","L4-03","L4-04","L4-05","L4-07","L4-09",
+    "L5-01","L5-03","L5-07","L5-12",
+    "L3-07","L3-09","L2-08","L5-14","L4-16",
+    "P-05","P-08","P-12","P-20"
+  ]
+},
+{
+  id:"T2", title:"B2 Application Test", titleVI:"Bài kiểm tra ứng dụng B2", time:35*60,
+  desc:"40 câu · Rút gọn mệnh đề quan hệ, mệnh đề phân từ, phân từ hoàn thành, sửa lỗi",
+  questionIds:[
+    "L6-01","L6-02","L6-03","L6-04","L6-05","L6-11","L6-13","L6-15",
+    "L7-01","L7-02","L7-03","L7-04","L7-05","L7-09","L7-10","L7-15","L7-16",
+    "L8-01","L8-02","L8-03","L8-04","L8-05","L8-08","L8-09","L8-10",
+    "L9-01","L9-02","L9-03","L9-04","L9-05","L9-06","L9-07",
+    "P-14","P-16","P-19","P-20","P-21","P-22","P-23","P-25"
+  ]
+},
+{
+  id:"T3", title:"Final Mastery Test", titleVI:"Bài kiểm tra tổng hợp cuối", time:50*60,
+  desc:"60 câu · Bao quát toàn bộ các bài học · Trắc nghiệm, điền từ, viết lại, sửa lỗi, dịch",
+  questionIds:[
+    "L1-01","L1-02","L1-03","L1-04","L1-05",
+    "L2-05","L2-06","L2-07","L2-08","L2-09","L2-10",
+    "L3-04","L3-05","L3-06","L3-07","L3-09",
+    "L4-01","L4-02","L4-03","L4-04","L4-05","L4-07","L4-09","L4-12","L4-14","L4-18","L4-19",
+    "L5-01","L5-02","L5-07","L5-10","L5-11","L5-12","L5-15",
+    "L6-01","L6-02","L6-03","L6-13","L6-18","L6-19",
+    "L7-01","L7-02","L7-03","L7-05","L7-18",
+    "L8-01","L8-02","L8-03","L8-09",
+    "L9-01","L9-02","L9-03","L9-04","L9-07",
+    "L10-01","L10-04","L10-15","L10-16","L10-17","L10-22","L10-25"
+  ]
+}
+];
+
+/* =======================================================================
+   5. STORAGE
+   ======================================================================= */
+const LS_KEY = "participles_mastery_v1";
+function defaultStore(){
+  return {
+    lessonsCompleted:{},
+    stats:{attempted:0, correct:0},
+    categories:{},
+    mistakes:{},
+    tests:{},
+    activity:[],
+    settings:{darkMode:false, showExplanations:true},
+    streak:{lastDate:null, count:0}
+  };
+}
+let STORE = defaultStore();
+function loadStore(){
+  try{
+    const raw = localStorage.getItem(LS_KEY);
+    if(raw){
+      const p = JSON.parse(raw);
+      STORE = Object.assign(defaultStore(), p);
+      STORE.stats = Object.assign({attempted:0,correct:0}, p.stats || {});
+      STORE.categories = p.categories || {};
+      STORE.mistakes = p.mistakes || {};
+      STORE.tests = p.tests || {};
+      STORE.activity = p.activity || [];
+      STORE.lessonsCompleted = p.lessonsCompleted || {};
+      STORE.settings = Object.assign({darkMode:false, showExplanations:true}, p.settings || {});
+      STORE.streak = Object.assign({lastDate:null,count:0}, p.streak || {});
+    }
+  }catch(e){ STORE = defaultStore(); }
+}
+function saveStore(){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify(STORE)); }catch(e){}
+}
+
+/* =======================================================================
+   6. UTILITIES
+   ======================================================================= */
+const esc = s => String(s==null?"":s)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+function norm(s){
+  return String(s==null?"":s)
+    .toLowerCase()
+    .replace(/[’‘`´]/g,"'")
+    .replace(/[^\p{L}\p{N}\s']/gu," ")
+    .replace(/\s+/g," ")
+    .trim();
+}
+function shuffle(a){
+  const arr = a.slice();
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]] = [arr[j],arr[i]];
+  }
+  return arr;
+}
+function pct(n,d){ return d ? Math.round((n/d)*100) : 0; }
+function fmtDate(ts){
+  if(!ts) return "—";
+  const d = new Date(ts), p = n => String(n).padStart(2,"0");
+  return p(d.getDate())+"/"+p(d.getMonth()+1)+"/"+d.getFullYear()+" "+p(d.getHours())+":"+p(d.getMinutes());
+}
+function todayStr(){
+  const d = new Date(); const p = n=>String(n).padStart(2,"0");
+  return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate());
+}
+function fmtTime(sec){
+  const m = Math.floor(sec/60), s = sec%60;
+  return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+}
+function getQ(id){ return QUESTIONS.find(q=>q.id===id); }
+
+const CATEGORY_LABEL = {
+  present_participle:"Phân từ hiện tại (V-ing)",
+  past_participle:"Phân từ quá khứ (V3/-ed)",
+  ving_vs_v3:"V-ing vs V3 (làm tính từ)",
+  reduced_relative:"Mệnh đề quan hệ rút gọn",
+  participle_clause:"Mệnh đề phân từ",
+  perfect_participle:"Phân từ hoàn thành",
+  error_correction:"Sửa lỗi",
+  translation:"Dịch",
+  mixed:"Tổng hợp"
+};
+const TYPE_LABEL = {
+  mcq:"Trắc nghiệm",
+  fill:"Điền từ",
+  reduced:"Rút gọn mệnh đề quan hệ",
+  clause:"Viết lại mệnh đề phân từ",
+  error:"Sửa lỗi",
+  translate:"Dịch",
+  matching:"Nối cặp"
+};
+
+/* =======================================================================
+   7. STREAK
+   ======================================================================= */
+function touchStreak(){
+  const today = todayStr();
+  if(STORE.streak.lastDate === today) return;
+  const y = new Date(); y.setDate(y.getDate()-1);
+  const p = n=>String(n).padStart(2,"0");
+  const yesterday = y.getFullYear()+"-"+p(y.getMonth()+1)+"-"+p(y.getDate());
+  if(STORE.streak.lastDate === yesterday) STORE.streak.count++;
+  else STORE.streak.count = 1;
+  STORE.streak.lastDate = today;
+  saveStore();
+}
+
+/* =======================================================================
+   8. RECORDING
+   ======================================================================= */
+function recordAnswer(q, correct, userAnswer){
+  STORE.stats.attempted++;
+  if(correct) STORE.stats.correct++;
+  if(q.category){
+    if(!STORE.categories[q.category]) STORE.categories[q.category] = {attempted:0,correct:0};
+    STORE.categories[q.category].attempted++;
+    if(correct) STORE.categories[q.category].correct++;
+  }
+  if(correct){
+    delete STORE.mistakes[q.id];
+  }else{
+    STORE.mistakes[q.id] = {userAnswer: userAnswer||"", date: Date.now()};
+  }
+  touchStreak();
+  saveStore();
+}
+function recordActivity(mode, label, score, total){
+  STORE.activity.unshift({ts:Date.now(), mode, label, score, total});
+  if(STORE.activity.length > 50) STORE.activity.length = 50;
+  saveStore();
+}
+
+/* =======================================================================
+   9. VIEW STATE
+   ======================================================================= */
+const state = {
+  view:"dashboard",
+  lessonId:1,
+  practiceCategory:"all",
+  practiceDifficulty:"all",
+  practiceType:"all",
+  searchTerm:"",
+  mistakeSearch:"",
+  session:null,
+  matchState:{},
+  selfReviewPending:false
+};
+
+/* =======================================================================
+   10. VIEW DISPATCH
+   ======================================================================= */
+function setView(v){
+  state.view = v;
+  document.querySelectorAll(".nav-btn").forEach(b=>{
+    b.classList.toggle("active", b.dataset.view === v);
+  });
+  const titles = {
+    dashboard:["Dashboard","Tổng quan học tập"],
+    lessons:["Grammar Lessons","10 bài học về phân từ"],
+    practice:["Practice Center","Luyện tập theo chủ đề"],
+    tests:["Comprehensive Tests","3 bài kiểm tra tổng hợp"],
+    progress:["Progress","Theo dõi tiến độ chi tiết"],
+    mistakes:["Mistakes Review","Ôn lại các câu sai"],
+    settings:["Settings","Tuỳ chỉnh trải nghiệm"]
+  };
+  const t = titles[v] || ["Dashboard",""];
+  document.getElementById("topTitle").innerHTML = esc(t[0])+"<small>"+esc(t[1])+"</small>";
+  render();
+  window.scrollTo({top:0});
+}
+function closeSidebar(){
+  document.getElementById("sidebar").classList.remove("open");
+  document.getElementById("overlay").classList.remove("show");
+}
+function toggleSidebar(){
+  document.getElementById("sidebar").classList.toggle("open");
+  document.getElementById("overlay").classList.toggle("show");
+}
+function updateTopStats(){
+  document.getElementById("topStreak").textContent = "🔥 "+STORE.streak.count+" ngày";
+  const acc = pct(STORE.stats.correct, STORE.stats.attempted);
+  document.getElementById("topAcc").textContent = acc+"% chính xác";
+}
+function render(){
+  applyTheme();
+  updateTopStats();
+  const el = document.getElementById("view");
+  switch(state.view){
+    case "dashboard": el.innerHTML = viewDashboard(); break;
+    case "lessons": el.innerHTML = viewLessons(); break;
+    case "practice": el.innerHTML = viewPractice(); break;
+    case "tests": el.innerHTML = viewTests(); break;
+    case "progress": el.innerHTML = viewProgress(); break;
+    case "mistakes": el.innerHTML = viewMistakes(); break;
+    case "settings": el.innerHTML = viewSettings(); break;
+    default: el.innerHTML = viewDashboard();
+  }
+  if(state.session) renderSession();
+}
+function applyTheme(){
+  document.documentElement.setAttribute("data-theme", STORE.settings.darkMode ? "dark" : "light");
+}
+
+/* =======================================================================
+   11. DASHBOARD
+   ======================================================================= */
+function viewDashboard(){
+  const lessonsDone = Object.keys(STORE.lessonsCompleted).length;
+  const acc = pct(STORE.stats.correct, STORE.stats.attempted);
+  const incorrect = STORE.stats.attempted - STORE.stats.correct;
+  const overallPct = Math.round(((lessonsDone/10)*0.4 + (STORE.stats.attempted ? (STORE.stats.correct/Math.max(STORE.stats.attempted,1)) : 0)*0.6) * 100);
+  const recent = STORE.activity.slice(0,5);
+
+  const nextLesson = LESSONS.find(l=>!STORE.lessonsCompleted[l.id]) || LESSONS[0];
+
+  const weak = Object.keys(STORE.categories).map(c=>({
+    cat:c,
+    acc:pct(STORE.categories[c].correct, STORE.categories[c].attempted),
+    attempted:STORE.categories[c].attempted
+  })).filter(x=>x.attempted>=3).sort((a,b)=>a.acc-b.acc).slice(0,3);
+
+  return `
+  <div class='page-head'>
+    <h1>Chào mừng 👋 Participles &amp; Past Participles Mastery</h1>
+    <p>Trình độ B1–B2 · Học phân từ tiếng Anh qua lý thuyết và bài tập tương tác.</p>
+  </div>
+
+  <div class='grid g4'>
+    ${statCard("Tiến độ tổng thể", overallPct+"%")}
+    ${statCard("Bài học đã hoàn thành", lessonsDone+" / 10")}
+    ${statCard("Câu đã làm", String(STORE.stats.attempted))}
+    ${statCard("Độ chính xác", acc+"%")}
+  </div>
+
+  <div class='grid g4' style='margin-top:14px'>
+    ${statCard("Trả lời đúng", String(STORE.stats.correct))}
+    ${statCard("Trả lời sai", String(incorrect))}
+    ${statCard("Bài kiểm tra đã làm", String(Object.keys(STORE.tests).length))}
+    ${statCard("Câu cần ôn lại", String(Object.keys(STORE.mistakes).length))}
+  </div>
+
+  <div class='card' style='margin-top:16px'>
+    <div class='row'>
+      <div>
+        <b>Tiến độ chung</b>
+        <div class='tiny muted'>Tính từ bài học hoàn thành và độ chính xác bài tập</div>
+      </div>
+      <span class='spacer'></span>
+      <span class='badge info'>${overallPct}%</span>
+    </div>
+    <div class='bar' style='margin-top:10px;height:12px'><span style='width:${overallPct}%'></span></div>
+    <div class='row' style='margin-top:16px'>
+      <button class='btn' data-action='continue-lesson' data-id='${nextLesson.id}'>▶ Tiếp tục học bài ${nextLesson.id}</button>
+      <button class='btn ghost' data-action='nav' data-view='practice'>✏️ Luyện tập ngay</button>
+      <button class='btn soft' data-action='nav' data-view='tests'>📝 Làm bài kiểm tra</button>
+    </div>
+  </div>
+
+  <div class='grid g2' style='margin-top:16px'>
+    <div class='card'>
+      <b>Hoạt động gần đây</b>
+      ${recent.length
+        ? `<table class='tbl' style='margin-top:10px'><tbody>${recent.map(a=>
+            `<tr><td>${esc(a.label)}</td><td class='tiny muted'>${fmtDate(a.ts)}</td><td style='text-align:right'><b>${a.score}/${a.total}</b></td></tr>`
+          ).join("")}</tbody></table>`
+        : `<div class='empty'><div class='big'>📭</div>Chưa có hoạt động nào. Hãy bắt đầu làm bài!</div>`}
+    </div>
+    <div class='card'>
+      <b>Chủ đề cần cải thiện</b>
+      ${weak.length
+        ? `<div style='margin-top:10px'>${weak.map(w=>`
+            <div style='margin-bottom:12px'>
+              <div class='row tiny'><span>${esc(CATEGORY_LABEL[w.cat]||w.cat)}</span><span class='spacer'></span><b>${w.acc}%</b></div>
+              <div class='bar' style='margin-top:5px'><span style='width:${w.acc}%'></span></div>
+            </div>`).join("")}</div>`
+        : `<div class='empty'><div class='big'>🎯</div>Làm ít nhất 3 câu mỗi chủ đề để xem phân tích.</div>`}
+    </div>
+  </div>
+  `;
+}
+function statCard(label, value){
+  return `<div class='stat'><div class='label'>${esc(label)}</div><div class='value'>${esc(value)}</div></div>`;
+}
+
+/* =======================================================================
+   12. LESSONS
+   ======================================================================= */
+function viewLessons(){
+  const search = state.searchTerm.toLowerCase();
+  const filtered = LESSONS.filter(l=>
+    !search ||
+    l.title.toLowerCase().includes(search) ||
+    l.titleVI.toLowerCase().includes(search)
+  );
+
+  if(state.lessonId && !filtered.find(l=>l.id===state.lessonId)){
+    state.lessonId = filtered[0] ? filtered[0].id : 1;
+  }
+  const current = LESSONS.find(l=>l.id===state.lessonId) || LESSONS[0];
+
+  const cards = filtered.map(l=>`
+    <div class='lesson-card' data-action='select-lesson' data-id='${l.id}'>
+      <h4>Bài ${l.id}: ${esc(l.title)}</h4>
+      <div class='sub'>${esc(l.titleVI)} · ${l.level}</div>
+      <div class='row tiny'>
+        ${STORE.lessonsCompleted[l.id] ? "<span class='badge ok'>Đã hoàn thành</span>" : "<span class='badge warn'>Chưa hoàn thành</span>"}
+        <span class='spacer'></span>
+        <span class='badge info'>${l.sections.length} phần</span>
+      </div>
+    </div>
+  `).join("");
+
+  const sections = current.sections.map(s=>`
+    <div class='ls-section'>
+      <h3>${esc(s.heading)}</h3>
+      ${s.html}
+    </div>
+  `).join("");
+
+  const examples = current.examples.map(e=>`
+    <div class='ex'>
+      <div class='en'>“${esc(e.en)}”</div>
+      <div class='vi'>${esc(e.vi)}</div>
+    </div>
+  `).join("");
+
+  const mistakes = current.mistakes.map(m=>`
+    <div class='mistake'>
+      <div class='wrong'>✗ ${esc(m.wrong)}</div>
+      <div class='right'>✓ ${esc(m.right)}</div>
+      <div class='why'>${esc(m.why)}</div>
+    </div>
+  `).join("");
+
+  const mini = QUESTIONS.filter(q=>q.lesson === current.id && q.type === "mcq").slice(0,5);
+  const miniHtml = mini.length
+    ? mini.map((q,i)=>renderQuestionCard(q,i+1,`mini-${current.id}`)).join("")
+    : "<div class='muted small'>Không có câu hỏi trắc nghiệm nào cho bài này.</div>";
+
+  return `
+  <div class='page-head'><h1>Grammar Lessons</h1><p>10 bài học chi tiết về phân từ. Chọn bài để xem lý thuyết, ví dụ, lỗi thường gặp và bài tập mini.</p></div>
+
+  <div class='card'>
+    <input class='search-box' type='text' placeholder='🔍 Tìm bài học...' id='lessonSearch' value='${esc(state.searchTerm)}'>
+  </div>
+
+  <div class='grid g3' style='margin-top:14px'>${cards}</div>
+
+  <div class='lesson-header' style='margin-top:20px'>
+    <div class='lnum'>Bài ${current.id} · ${current.level}</div>
+    <h2>${esc(current.title)}</h2>
+    <div class='vi'>${esc(current.titleVI)}</div>
+    <div class='objectives'>
+      ${current.objectives.map(o=>`<span class='obj'>${esc(o)}</span>`).join("")}
+    </div>
+    <div class='row' style='margin-top:14px'>
+      ${STORE.lessonsCompleted[current.id]
+        ? "<span class='badge ok'>✓ Đã hoàn thành bài học</span>"
+        : "<span class='badge warn'>Chưa hoàn thành — hãy học lý thuyết rồi đánh dấu</span>"}
+      <span class='spacer'></span>
+      <button class='btn sm' data-action='mark-lesson-done' data-id='${current.id}'>${STORE.lessonsCompleted[current.id]?'↺ Bỏ đánh dấu':'✓ Đánh dấu đã hoàn thành'}</button>
+    </div>
+  </div>
+
+  <div class='sec-title'>Nội dung chi tiết</div>
+  ${sections}
+
+  <div class='sec-title'>Ví dụ minh hoạ</div>
+  <div class='card'>${examples}</div>
+
+  <div class='sec-title'>Lỗi thường gặp</div>
+  <div class='card'>${mistakes}</div>
+
+  <div class='sec-title'>Mini practice</div>
+  <div class='card'>
+    <div class='small muted' style='margin-bottom:12px'>Chọn đáp án đúng. Sau khi chọn, bấm “Kiểm tra” để xem giải thích.</div>
+    <div id='miniContainer'>${miniHtml}</div>
+  </div>
+
+  <div class='row' style='margin-top:16px;justify-content:space-between'>
+    <button class='btn ghost' data-action='prev-lesson' ${current.id<=1?'disabled':''}>← Bài trước</button>
+    <button class='btn' data-action='next-lesson' ${current.id>=10?'disabled':''}>Bài tiếp theo →</button>
+  </div>
+  `;
+}
+function renderQuestionCard(q, num, groupId){
+  const opts = q.options.map((o,i)=>{
+    const k = String.fromCharCode(65+i);
+    return `<button class='opt' data-action='mini-opt' data-group='${groupId}' data-qid='${q.id}' data-value='${esc(o)}'>
+      <span class='k'>${k}</span><span>${esc(o)}</span>
+    </button>`;
+  }).join("");
+  return `
+    <div class='q-wrap' style='margin-bottom:14px' data-mini="${q.id}">
+      <div class='q-counter' style='display:inline-block;margin-bottom:8px'>Câu ${num}</div>
+      <div class='q-text'>${esc(q.question)}</div>
+      ${opts}
+      <div class='row' style='margin-top:8px'>
+        <button class='btn sm' data-action='mini-check' data-qid='${q.id}'>Kiểm tra</button>
+      </div>
+      <div class='feedback-slot' data-slot="${q.id}"></div>
+    </div>
+  `;
+}
+
+/* =======================================================================
+   13. PRACTICE CENTER
+   ======================================================================= */
+function viewPractice(){
+  const categories = ["all","present_participle","past_participle","ving_vs_v3","reduced_relative","participle_clause","perfect_participle","error_correction","translation","mixed"];
+  const catChips = categories.map(c=>
+    `<button class='chip ${state.practiceCategory===c?'active':''}' data-action='select-cat' data-cat='${c}'>${c==='all'?'Tất cả':esc(CATEGORY_LABEL[c])}</button>`
+  ).join("");
+
+  const diffChips = ["all","B1","B2"].map(d=>
+    `<button class='chip ${state.practiceDifficulty===d?'active':''}' data-action='select-diff' data-diff='${d}'>${d==='all'?'Mọi độ khó':d}</button>`
+  ).join("");
+
+  const types = ["all","mcq","fill","reduced","clause","error","translate"];
+  const typeChips = types.map(t=>
+    `<button class='chip ${state.practiceType===t?'active':''}' data-action='select-ptype' data-ptype='${t}'>${t==='all'?'Mọi dạng':esc(TYPE_LABEL[t])}</button>`
+  ).join("");
+
+  let pool = QUESTIONS.filter(q=>{
+    if(state.practiceCategory!=='all' && q.category !== state.practiceCategory) return false;
+    if(state.practiceDifficulty!=='all' && q.difficulty !== state.practiceDifficulty) return false;
+    if(state.practiceType!=='all' && q.type !== state.practiceType) return false;
+    return true;
+  });
+
+  const samples = pool.slice(0,5).map(q=>{
+    const diff = q.difficulty;
+    return `<div class='row' style='padding:8px 0;border-bottom:1px solid var(--border)'>
+      <div style='flex:1 1 200px;min-width:0'>
+        <div class='small' style='font-weight:600'>${esc(q.question.length>70?q.question.slice(0,70)+'…':q.question)}</div>
+        <div class='tiny muted'>${esc(TYPE_LABEL[q.type]||q.type)} · ${esc(CATEGORY_LABEL[q.category]||q.category)} · ${diff}</div>
+      </div>
+    </div>`;
+  }).join("");
+
+  const matchingPool = MATCHING.filter(m=>{
+    if(state.practiceCategory!=='all' && m.category !== state.practiceCategory) return false;
+    if(state.practiceDifficulty!=='all' && m.difficulty !== state.practiceDifficulty) return false;
+    return true;
+  });
+
+  return `
+  <div class='page-head'><h1>Practice Center</h1><p>Chọn chủ đề, độ khó và dạng bài tập. Hệ thống sẽ tạo lượt luyện tập ngẫu nhiên từ ngân hàng câu hỏi.</p></div>
+
+  <div class='card'>
+    <div class='small muted' style='margin-bottom:6px'>Chủ đề:</div>
+    <div class='chips'>${catChips}</div>
+    <div class='small muted' style='margin:10px 0 6px'>Độ khó:</div>
+    <div class='chips'>${diffChips}</div>
+    <div class='small muted' style='margin:10px 0 6px'>Dạng bài:</div>
+    <div class='chips'>${typeChips}</div>
+    <div class='row' style='margin-top:12px'>
+      <span class='badge info'>${pool.length} câu hỏi phù hợp</span>
+      <span class='spacer'></span>
+      <button class='btn' data-action='start-practice'>▶ Bắt đầu luyện tập</button>
+    </div>
+  </div>
+
+  <div class='card' style='margin-top:16px'>
+    <b>Matching Exercises</b>
+    <p class='small muted' style='margin-top:4px'>Nối cặp khái niệm — ${matchingPool.length} bộ bài có sẵn.</p>
+    <div class='row' style='margin-top:12px'>
+      ${matchingPool.map(m=>`<button class='btn sm ghost' data-action='start-matching' data-id='${m.id}'>🔗 ${esc(m.title)}</button>`).join("")}
+    </div>
+  </div>
+
+  <div class='sec-title'>Xem trước ngân hàng câu hỏi</div>
+  <div class='card'>${samples||"<div class='muted small'>Không có câu nào phù hợp với bộ lọc hiện tại.</div>"}</div>
+  `;
+}
+
+/* =======================================================================
+   14. TESTS
+   ======================================================================= */
+function viewTests(){
+  const cards = TESTS.map(t=>{
+    const done = STORE.tests[t.id];
+    return `
+    <div class='card'>
+      <div class='row'>
+        <div style='flex:1 1 200px'>
+          <h3 style='font-size:16px'>${esc(t.title)}</h3>
+          <div class='tiny muted'>${esc(t.titleVI)}</div>
+          <div class='small muted' style='margin-top:8px'>${esc(t.desc)}</div>
+          <div class='row tiny' style='margin-top:8px'>
+            <span class='badge info'>${t.questionIds.length} câu</span>
+            <span class='badge warn'>⏱ ${Math.round(t.time/60)} phút</span>
+            ${done ? `<span class='badge ok'>Điểm cao nhất: ${done.best||0}%</span>` : ""}
+          </div>
+        </div>
+      </div>
+      <div class='row' style='margin-top:12px'>
+        <button class='btn' data-action='start-test' data-id='${t.id}'>▶ Bắt đầu</button>
+        ${done ? `<button class='btn ghost sm' data-action='view-test-result' data-id='${t.id}'>Xem kết quả gần nhất</button>` : ""}
+      </div>
+    </div>`;
+  }).join("");
+
+  return `
+  <div class='page-head'><h1>Comprehensive Tests</h1><p>Ba bài kiểm tra tổng hợp để đánh giá tiến độ. Kết quả được lưu lại để so sánh giữa các lần làm.</p></div>
+  ${cards}
+  <div class='card' style='margin-top:16px'>
+    <b>Lưu ý khi làm bài</b>
+    <ul class='small muted' style='margin-top:8px'>
+      <li>Bạn có thể chuyển qua lại giữa các câu bằng nút “Câu trước” / “Câu tiếp theo”.</li>
+      <li>Đồng hồ đếm ngược hoạt động thực tế — hết giờ bài kiểm tra sẽ tự động nộp.</li>
+      <li>Câu trả lời của bạn được giữ nguyên khi chuyển câu.</li>
+      <li>Kết quả lưu điểm cao nhất và số lần làm bài.</li>
+    </ul>
+  </div>
+  `;
+}
+
+/* =======================================================================
+   15. PROGRESS
+   ======================================================================= */
+function viewProgress(){
+  const lessonsDone = Object.keys(STORE.lessonsCompleted).length;
+  const acc = pct(STORE.stats.correct, STORE.stats.attempted);
+
+  const catRows = Object.keys(CATEGORY_LABEL).map(c=>{
+    const d = STORE.categories[c] || {attempted:0,correct:0};
+    const p = pct(d.correct, d.attempted);
+    return `<tr>
+      <td>${esc(CATEGORY_LABEL[c])}</td>
+      <td>${d.attempted}</td>
+      <td>${d.correct}</td>
+      <td><b>${p}%</b></td>
+      <td style='width:140px'><div class='bar'><span style='width:${p}%'></span></div></td>
+    </tr>`;
+  }).join("");
+
+  const testRows = TESTS.map(t=>{
+    const r = STORE.tests[t.id];
+    if(!r) return `<tr><td>${esc(t.title)}</td><td colspan='4' class='muted'>Chưa làm</td></tr>`;
+    return `<tr>
+      <td>${esc(t.title)}</td>
+      <td>${r.attempts}</td>
+      <td>${r.best||0}%</td>
+      <td>${r.last||0}%</td>
+      <td class='tiny muted'>${fmtDate(r.lastDate)}</td>
+    </tr>`;
+  }).join("");
+
+  const empty = STORE.stats.attempted === 0 && lessonsDone === 0;
+  if(empty){
+    return `<div class='page-head'><h1>Progress</h1></div>
+      <div class='card empty'>
+        <div class='big'>📊</div>
+        <b>Bạn chưa hoàn thành bài luyện tập nào.</b><br>
+        <span class='small'>Hãy bắt đầu với một bài học hoặc luyện tập để theo dõi tiến độ.</span><br><br>
+        <button class='btn' data-action='nav' data-view='lessons'>📘 Bắt đầu học</button>
+      </div>`;
+  }
+
+  return `
+  <div class='page-head'><h1>Progress Dashboard</h1><p>Theo dõi tiến độ học tập chi tiết.</p></div>
+
+  <div class='grid g4'>
+    ${statCard("Bài học đã xong", lessonsDone+" / 10")}
+    ${statCard("Tổng câu đã làm", String(STORE.stats.attempted))}
+    ${statCard("Độ chính xác", acc+"%")}
+    ${statCard("Câu cần ôn lại", String(Object.keys(STORE.mistakes).length))}
+  </div>
+
+  <div class='sec-title'>Hiệu suất theo chủ đề</div>
+  <div class='card' style='overflow-x:auto'>
+    <table class='tbl'><thead><tr><th>Chủ đề</th><th>Đã làm</th><th>Đúng</th><th>Tỷ lệ</th><th></th></tr></thead><tbody>${catRows}</tbody></table>
+  </div>
+
+  <div class='sec-title'>Kết quả bài kiểm tra</div>
+  <div class='card' style='overflow-x:auto'>
+    <table class='tbl'><thead><tr><th>Bài kiểm tra</th><th>Số lần</th><th>Cao nhất</th><th>Gần nhất</th><th>Ngày</th></tr></thead><tbody>${testRows}</tbody></table>
+  </div>
+
+  <div class='sec-title'>Lịch sử hoạt động</div>
+  <div class='card'>
+    ${STORE.activity.length
+      ? `<div style='overflow-x:auto'><table class='tbl'><thead><tr><th>Thời gian</th><th>Hoạt động</th><th>Điểm</th><th>Tỷ lệ</th></tr></thead><tbody>${
+        STORE.activity.slice(0,20).map(a=>`<tr><td class='tiny muted'>${fmtDate(a.ts)}</td><td>${esc(a.label)}</td><td>${a.score}/${a.total}</td><td>${pct(a.score,a.total)}%</td></tr>`).join("")
+      }</tbody></table></div>`
+      : `<div class='empty'>Chưa có hoạt động nào.</div>`}
+  </div>
+  `;
+}
+
+/* =======================================================================
+   16. MISTAKES
+   ======================================================================= */
+function viewMistakes(){
+  const ids = Object.keys(STORE.mistakes);
+  const search = state.mistakeSearch.toLowerCase();
+  const filtered = ids.map(id=>getQ(id)).filter(q=>q && (!search || q.question.toLowerCase().includes(search)));
+  if(!ids.length){
+    return `<div class='page-head'><h1>Mistakes Review</h1></div>
+      <div class='card empty'>
+        <div class='big'>🎉</div>
+        <b>Bạn chưa có câu trả lời sai nào!</b><br>
+        <span class='small'>Hãy tiếp tục luyện tập — các câu sai sẽ xuất hiện ở đây để bạn ôn lại.</span><br><br>
+        <button class='btn' data-action='nav' data-view='practice'>✏️ Luyện tập ngay</button>
+      </div>`;
+  }
+
+  const cards = filtered.map(q=>{
+    const m = STORE.mistakes[q.id];
+    const opts = q.options ? q.options.map(o=>`<li>${esc(o)}</li>`).join("") : "";
+    return `
+      <div class='card' style='margin-bottom:12px'>
+        <div class='row tiny muted' style='margin-bottom:6px'>
+          <span class='badge info'>${esc(TYPE_LABEL[q.type]||q.type)}</span>
+          <span class='badge'>${esc(CATEGORY_LABEL[q.category]||q.category)}</span>
+          <span class='badge warn'>${q.difficulty}</span>
+          <span class='spacer'></span>
+          <span>${fmtDate(m.date)}</span>
+        </div>
+        <div style='font-weight:600;margin-bottom:8px'>${esc(q.question)}</div>
+        ${opts?`<ul class='small muted'>${opts}</ul>`:""}
+        <div class='fb-ans' style='background:var(--bad-bg);border-radius:9px;padding:8px 12px;font-size:14px;margin-top:6px'><b>Bạn đã trả lời:</b> ${esc(m.userAnswer||"(không có)")}</div>
+        <div class='fb-ans' style='background:var(--ok-bg);border-radius:9px;padding:8px 12px;font-size:14px;margin-top:6px'><b>Đáp án đúng:</b> ${esc(Array.isArray(q.answer)?q.answer[0]:q.answer)}</div>
+        <div class='small muted' style='margin-top:8px'><b>Giải thích:</b> ${esc(q.explanationVI)}</div>
+        <div class='row' style='margin-top:10px'>
+          <button class='btn sm' data-action='retry-one' data-id='${q.id}'>🔁 Làm lại</button>
+          <button class='btn sm ghost' data-action='remove-mistake' data-id='${q.id}'>✓ Đã hiểu, xoá</button>
+        </div>
+      </div>`;
+  }).join("");
+
+  return `
+  <div class='page-head'><h1>Mistakes Review</h1><p>Bạn có <b>${ids.length}</b> câu cần ôn lại.</p></div>
+  <div class='card'>
+    <input class='search-box' id='mistakeSearch' type='text' placeholder='🔍 Tìm câu sai...' value='${esc(state.mistakeSearch)}'>
+    <div class='row' style='margin-top:12px'>
+      <button class='btn' data-action='retry-all-mistakes'>🔁 Làm lại tất cả (${ids.length} câu)</button>
+      <button class='btn danger' data-action='clear-mistakes'>🗑 Xoá toàn bộ</button>
+    </div>
+  </div>
+  <div style='margin-top:16px'>${cards}</div>
+  `;
+}
+
+/* =======================================================================
+   17. SETTINGS
+   ======================================================================= */
+function viewSettings(){
+  return `
+  <div class='page-head'><h1>Settings</h1><p>Tuỳ chỉnh trải nghiệm học tập. Mọi thiết lập được lưu trong trình duyệt.</p></div>
+
+  <div class='card'>
+    <b>Giao diện</b>
+    <label class='switch'><input type='checkbox' id='setDark' ${STORE.settings.darkMode?'checked':''}> Chế độ tối (Dark mode)</label>
+    <label class='switch'><input type='checkbox' id='setExp' ${STORE.settings.showExplanations?'checked':''}> Hiện giải thích sau khi trả lời</label>
+    <button class='btn sm' style='margin-top:12px' data-action='save-settings'>💾 Lưu thiết lập</button>
+  </div>
+
+  <div class='card' style='margin-top:14px'>
+    <b>Đặt lại dữ liệu</b>
+    <p class='small muted' style='margin-top:6px'>Các thao tác dưới đây không thể hoàn tác.</p>
+    <div class='row' style='margin-top:10px'>
+      <button class='btn danger sm' data-action='reset-lessons'>↺ Đặt lại bài học đã hoàn thành</button>
+      <button class='btn danger sm' data-action='reset-tests'>↺ Đặt lại kết quả kiểm tra</button>
+      <button class='btn danger sm' data-action='reset-mistakes'>↺ Xoá danh sách lỗi sai</button>
+      <button class='btn danger sm' data-action='reset-all'>🗑 Đặt lại TOÀN BỘ</button>
+    </div>
+  </div>
+
+  <div class='card' style='margin-top:14px'>
+    <b>Về ứng dụng</b>
+    <p class='small muted' style='margin-top:6px'>
+      Participles &amp; Past Participles Mastery — ứng dụng ôn luyện ngữ pháp tiếng Anh B1–B2 dành cho người học Việt Nam.
+      Bao gồm 10 bài học chi tiết và hơn 180 câu hỏi thuộc 9 dạng bài tập khác nhau.
+    </p>
+    <p class='small muted' style='margin-top:6px'>Toàn bộ nội dung được biên soạn riêng, không trích dẫn nguyên văn từ giáo trình nào.</p>
+  </div>
+  `;
+}
+
+/* =======================================================================
+   18. SESSION MANAGEMENT
+   ======================================================================= */
+function startSession(config){
+  let qs = config.questions.slice();
+  qs = shuffle(qs).map(q=>Object.assign({}, q));
+  state.session = {
+    mode: config.mode,
+    title: config.title,
+    questions: qs,
+    index: 0,
+    results: [],
+    currentAnswer: null,
+    checked: false,
+    startTs: Date.now(),
+    limit: config.limit || null,
+    remaining: config.limit || 0,
+    timerId: null,
+    testId: config.testId || null
+  };
+  state.matchState = {};
+  if(config.limit){
+    state.session.timerId = setInterval(tickTimer, 1000);
+  }
+  setView(state.view);
+}
+function tickTimer(){
+  const s = state.session;
+  if(!s) return;
+  s.remaining--;
+  if(s.remaining <= 0){
+    s.remaining = 0;
+    clearInterval(s.timerId);
+    s.timerId = null;
+    finishSession(true);
+    return;
+  }
+  const el = document.getElementById("timerDisplay");
+  if(el){
+    el.textContent = "⏱ " + fmtTime(s.remaining);
+    el.classList.toggle("danger", s.remaining <= 60);
+  }
+}
+function stopTimer(){
+  if(state.session && state.session.timerId){
+    clearInterval(state.session.timerId);
+    state.session.timerId = null;
+  }
+}
+function renderSession(){
+  const s = state.session;
+  if(!s) return;
+  const root = document.getElementById("view");
+  const q = s.questions[s.index];
+  const total = s.questions.length;
+  const progressPct = Math.round((s.index / total) * 100);
+
+  let timerHtml = "";
+  if(s.limit) timerHtml = `<span class='timer ${s.remaining<=60?'danger':''}' id='timerDisplay'>⏱ ${fmtTime(s.remaining)}</span>`;
+
+  let body = "";
+  if(q.type === "mcq") body = renderOpts(q);
+  else if(q.type === "fill") body = `<input type='text' class='answer' id='answerInput' placeholder='Nhập câu trả lời...' autocomplete='off' spellcheck='false'>`;
+  else body = `<textarea class='answer' id='answerInput' placeholder='Viết câu trả lời của bạn...'></textarea>`;
+
+  const prevDisabled = s.index === 0 ? "disabled" : "";
+  const nextLabel = s.index === total-1 ? "Hoàn thành →" : "Câu tiếp →";
+
+  root.innerHTML = `
+  <div class='q-wrap'>
+    <div class='q-top'>
+      <button class='btn sm ghost' data-action='abandon-session'>← Thoát</button>
+      <span class='q-counter'>Câu ${s.index+1} / ${total}</span>
+      ${timerHtml}
+      <span class='spacer'></span>
+      <span class='badge info'>${esc(s.title)}</span>
+    </div>
+    <div class='bar' style='margin-bottom:16px'><span style='width:${progressPct}%'></span></div>
+    <div class='card'>
+      <div class='tiny muted' style='margin-bottom:6px'>${esc(TYPE_LABEL[q.type]||q.type)} · ${esc(CATEGORY_LABEL[q.category]||q.category)} · ${q.difficulty}</div>
+      <div class='q-text'>${esc(q.question)}</div>
+      ${body}
+      <div id='feedbackSlot'></div>
+      <div class='row' style='margin-top:16px'>
+        <button class='btn ghost' data-action='prev-q' ${prevDisabled}>← Câu trước</button>
+        <button class='btn' id='checkBtn' data-action='check-answer'>Kiểm tra</button>
+        <button class='btn' id='nextBtn' data-action='next-q' style='display:none'>${nextLabel}</button>
+        <span class='spacer'></span>
+        <button class='btn sm soft' id='skipBtn' data-action='skip-q'>Bỏ qua</button>
+      </div>
+    </div>
+  </div>`;
+
+  // restore answer if user navigated back
+  if(s.checked && s.results[s.index]){
+    const r = s.results[s.index];
+    lockUI();
+    if(q.type === "mcq"){
+      document.querySelectorAll(".opt").forEach(b=>{
+        if(b.dataset.value === r.userAnswer) b.classList.add("sel");
+        if(b.dataset.value === q.answer) b.classList.add("correct");
+        if(b.dataset.value === r.userAnswer && !r.correct) b.classList.add("wrong");
+      });
+    }else{
+      const inp = document.getElementById("answerInput");
+      if(inp) inp.value = r.userAnswer || "";
+    }
+    if(r.auto){
+      showFeedback(q, r.userAnswer, r.correct);
+    }else{
+      showSelfReview(q, r.userAnswer);
+    }
+    afterCheckUI();
+  }
+}
+function renderOpts(q){
+  return q.options.map((o,i)=>{
+    const k = String.fromCharCode(65+i);
+    return `<button class='opt' data-action='select-opt' data-value='${esc(o)}'><span class='k'>${k}</span><span>${esc(o)}</span></button>`;
+  }).join("");
+}
+function lockUI(){
+  document.querySelectorAll(".opt").forEach(b=>b.disabled = true);
+  const inp = document.getElementById("answerInput");
+  if(inp) inp.disabled = true;
+}
+function afterCheckUI(){
+  const cb = document.getElementById("checkBtn");
+  const nb = document.getElementById("nextBtn");
+  const sb = document.getElementById("skipBtn");
+  if(cb) cb.style.display = "none";
+  if(sb) sb.style.display = "none";
+  if(nb) nb.style.display = "inline-flex";
+}
+
+function gradeAuto(q, ans){
+  if(q.type === "mcq"){
+    return {auto:true, correct:norm(ans) === norm(q.answer)};
+  }
+  if(q.type === "fill"){
+    const list = Array.isArray(q.answer) ? q.answer : [q.answer];
+    const a = norm(ans);
+    return {auto:true, correct: a.length>0 && list.some(x=>norm(x)===a)};
+  }
+  // self-review: reduced, clause, error, translate
+  const list = Array.isArray(q.answer) ? q.answer : [q.answer];
+  const a = norm(ans);
+  if(a && list.some(x=>norm(x)===a)) return {auto:true, correct:true};
+  return {auto:false, correct:null};
+}
+
+function currentAnswer(){
+  const s = state.session;
+  if(!s) return "";
+  const q = s.questions[s.index];
+  if(q.type === "mcq") return s.currentAnswer || "";
+  const el = document.getElementById("answerInput");
+  return el ? el.value.trim() : "";
+}
+
+function checkAnswer(){
+  const s = state.session;
+  if(!s || s.checked) return;
+  const q = s.questions[s.index];
+  const ans = currentAnswer();
+  if(q.type === "mcq" && !ans){ flash("neutral","Chưa chọn đáp án","Hãy chọn một đáp án trước."); return; }
+  if((q.type === "fill" || q.type === "reduced" || q.type === "clause" || q.type === "error" || q.type === "translate") && !ans){
+    flash("neutral","Chưa nhập câu trả lời","Hãy nhập câu trả lời của bạn trước."); return;
+  }
+
+  const res = gradeAuto(q, ans);
+  s.checked = true;
+  const result = {qid:q.id, userAnswer:ans, correct:res.correct, auto:res.auto};
+  // remove any existing record at this index (in case of revisiting)
+  s.results = s.results.filter((_,i)=>i !== s.index);
+  s.results[s.index] = result;
+
+  if(res.auto){
+    recordAnswer(q, res.correct, ans);
+    showFeedback(q, ans, res.correct);
+  }else{
+    showSelfReview(q, ans);
+  }
+  lockUI();
+  afterCheckUI();
+}
+
+function showFeedback(q, ans, correct){
+  const slot = document.getElementById("feedbackSlot");
+  if(!slot) return;
+  if(q.type === "mcq"){
+    document.querySelectorAll(".opt").forEach(b=>{
+      if(b.dataset.value === q.answer) b.classList.add("correct");
+      if(b.dataset.value === ans && !correct) b.classList.add("wrong");
+    });
+  }
+  const cls = correct ? "ok" : "bad";
+  const title = correct ? "✅ Chính xác!" : "❌ Chưa đúng";
+  const correctAns = Array.isArray(q.answer) ? q.answer[0] : q.answer;
+  slot.innerHTML = `
+    <div class='feedback ${cls}'>
+      <div class='fb-title'>${title}</div>
+      ${!correct ? `<div class='fb-ans'><b>Câu trả lời của bạn:</b> ${esc(ans)}</div>` : ""}
+      <div class='fb-ans'><b>Đáp án đúng:</b> ${esc(correctAns)}</div>
+      ${STORE.settings.showExplanations ? `
+        <div class='fb-exp'><b>Giải thích (EN):</b> ${esc(q.explanationEN)}</div>
+        <div class='fb-exp'><b>Giải thích (VI):</b> ${esc(q.explanationVI)}</div>
+      ` : ""}
+    </div>`;
+}
+function showSelfReview(q, ans){
+  const slot = document.getElementById("feedbackSlot");
+  if(!slot) return;
+  const model = Array.isArray(q.answer) ? q.answer[0] : q.answer;
+  slot.innerHTML = `
+    <div class='feedback neutral'>
+      <div class='fb-title'>🔎 Tự đánh giá</div>
+      <div>Hệ thống không thể chấm chính xác tuyệt đối dạng câu này. Hãy so sánh câu của bạn với đáp án mẫu.</div>
+      <div class='fb-ans'><b>Câu trả lời của bạn:</b> ${esc(ans)}</div>
+      <div class='fb-ans'><b>Đáp án mẫu:</b> ${esc(model)}</div>
+      ${q.answer && q.answer.length > 1 ? `<div class='fb-ans'><b>Các đáp án khác được chấp nhận:</b> ${q.answer.slice(1).map(esc).join(" · ")}</div>` : ""}
+      ${STORE.settings.showExplanations ? `
+        <div class='fb-exp'><b>Giải thích (EN):</b> ${esc(q.explanationEN)}</div>
+        <div class='fb-exp'><b>Giải thích (VI):</b> ${esc(q.explanationVI)}</div>
+      ` : ""}
+      <div class='row' style='margin-top:12px'>
+        <button class='btn sm' data-action='self-mark' data-ok='1'>✔ Câu trả lời của tôi đúng</button>
+        <button class='btn sm danger' data-action='self-mark' data-ok='0'>✘ Tôi đã sai</button>
+      </div>
+    </div>`;
+}
+function flash(kind, title, msg){
+  const slot = document.getElementById("feedbackSlot");
+  if(!slot) return;
+  slot.innerHTML = `<div class='feedback ${kind}'><div class='fb-title'>${esc(title)}</div>${esc(msg)}</div>`;
+}
+function goNext(){
+  const s = state.session;
+  if(!s) return;
+  if(s.index >= s.questions.length - 1){
+    finishSession(false);
+    return;
+  }
+  s.index++;
+  s.checked = false;
+  s.currentAnswer = null;
+  renderSession();
+}
+function goPrev(){
+  const s = state.session;
+  if(!s || s.index === 0) return;
+  s.index--;
+  s.checked = !!s.results[s.index];
+  s.currentAnswer = null;
+  renderSession();
+}
+function skipQuestion(){
+  const s = state.session;
+  if(!s) return;
+  const q = s.questions[s.index];
+  s.results = s.results.filter((_,i)=>i !== s.index);
+  s.results[s.index] = {qid:q.id, userAnswer:"", correct:false, auto:true, skipped:true};
+  recordAnswer(q, false, "(bỏ qua)");
+  goNext();
+}
+function finishSession(timeUp){
+  const s = state.session;
+  if(!s) return;
+  stopTimer();
+  const total = s.questions.length;
+  let correct = 0;
+  s.results.forEach(r=>{ if(r && r.correct === true) correct++; });
+  const percent = pct(correct, total);
+  const seconds = Math.round((Date.now() - s.startTs)/1000);
+
+  if(s.mode === "test" && s.testId){
+    const t = TESTS.find(x=>x.id===s.testId);
+    if(t){
+      const prev = STORE.tests[t.id] || {attempts:0, best:0, last:0, lastDate:null};
+      prev.attempts++;
+      if(percent > (prev.best||0)) prev.best = percent;
+      prev.last = percent;
+      prev.lastDate = Date.now();
+      STORE.tests[t.id] = prev;
+      recordActivity("test", `${t.title} · ${correct}/${total}`, correct, total);
+    }
+  }else if(s.mode === "practice"){
+    recordActivity("practice", `Practice · ${correct}/${total}`, correct, total);
+  }else if(s.mode === "review"){
+    recordActivity("review", `Ôn lỗi sai · ${correct}/${total}`, correct, total);
+  }
+
+  const rows = s.results.map((r,i)=>{
+    if(!r) return "";
+    const q = s.questions[i];
+    const ok = r.correct === true;
+    const correctAns = Array.isArray(q.answer) ? q.answer[0] : q.answer;
+    return `<tr>
+      <td>${i+1}</td>
+      <td>${esc(q.question.length>70?q.question.slice(0,70)+'…':q.question)}</td>
+      <td>${esc((r.userAnswer||"(bỏ qua)").slice(0,60))}</td>
+      <td>${esc(correctAns.length>60?correctAns.slice(0,60)+'…':correctAns)}</td>
+      <td>${ok?"<span class='badge ok'>Đúng</span>":r.auto===false?"<span class='badge warn'>Tự đánh giá</span>":"<span class='badge bad'>Sai</span>"}</td>
+    </tr>`;
+  }).join("");
+
+  const suggestion = percent >= 80
+    ? "Kết quả xuất sắc! Hãy tiếp tục với các bài tập nâng cao hoặc bài kiểm tra tiếp theo."
+    : (percent >= 50
+      ? "Kết quả khá ổn. Xem lại các câu sai và ôn lại phần lý thuyết liên quan."
+      : "Hãy quay lại bài học lý thuyết, đọc kỹ các cấu trúc, sau đó làm lại bài tập.");
+
+  const sessionRef = s;
+  state.session = null;
+  state.matchState = {};
+
+  const root = document.getElementById("view");
+  root.innerHTML = `
+  <div class='q-wrap'>
+    <div class='card result-hero'>
+      <div class='score-ring' style='--pct:${percent}%'><span>${percent}%</span><small>CHÍNH XÁC</small></div>
+      <h2 style='font-size:20px'>${timeUp?"⏰ Hết giờ!":"🎉 Hoàn thành!"}</h2>
+      <p class='muted small'>${esc(sessionRef.title)}</p>
+      <div class='grid g4' style='margin-top:18px'>
+        ${statCard("Tổng số câu", String(total))}
+        ${statCard("Trả lời đúng", String(correct))}
+        ${statCard("Trả lời sai", String(total-correct))}
+        ${statCard("Thời gian", fmtTime(seconds))}
+      </div>
+      <div class='feedback neutral' style='margin-top:16px;text-align:left'>
+        <div class='fb-title'>💡 Gợi ý</div>${esc(suggestion)}
+      </div>
+      <div class='row' style='margin-top:16px;justify-content:center'>
+        <button class='btn' data-action='nav' data-view='practice'>✏️ Luyện tập tiếp</button>
+        <button class='btn ghost' data-action='nav' data-view='mistakes'>🔁 Ôn lỗi sai</button>
+        <button class='btn soft' data-action='nav' data-view='progress'>📈 Xem tiến độ</button>
+      </div>
+    </div>
+    <div class='card' style='margin-top:16px'>
+      <b>Xem lại chi tiết</b>
+      <div style='overflow-x:auto;margin-top:10px'>
+        <table class='tbl'>
+          <thead><tr><th>#</th><th>Câu hỏi</th><th>Bạn trả lời</th><th>Đáp án</th><th>Kết quả</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>
+  </div>`;
+  updateTopStats();
+}
+
+/* =======================================================================
+   19. MATCHING SESSION
+   ======================================================================= */
+function startMatching(id){
+  const m = MATCHING.find(x=>x.id===id);
+  if(!m) return;
+  state.session = {
+    mode:"matching",
+    title: m.title,
+    matching: m,
+    startTs: Date.now(),
+    checked:false,
+    results:[]
+  };
+  state.matchState = {};
+  renderMatchingSession();
+}
+function renderMatchingSession(){
+  const s = state.session;
+  if(!s || s.mode !== "matching") return;
+  const m = s.matching;
+  const rights = shuffle(m.pairs.map(p=>p.right));
+  const rows = m.pairs.map((p,i)=>{
+    const sel = state.matchState[i] || "";
+    const opts = ["<option value=''>— Chọn vế phù hợp —</option>"].concat(
+      rights.map(r=>`<option value='${esc(r)}' ${sel===r?"selected":""}>${esc(r)}</option>`)
+    ).join("");
+    return `<div class='match-row' data-mi='${i}'>
+      <div class='match-left'>${i+1}. ${esc(p.left)}</div>
+      <select class='match' data-action='match-select' data-mi='${i}'>${opts}</select>
+    </div>`;
+  }).join("");
+
+  document.getElementById("view").innerHTML = `
+  <div class='q-wrap'>
+    <div class='q-top'>
+      <button class='btn sm ghost' data-action='abandon-session'>← Thoát</button>
+      <span class='badge info'>${esc(m.title)}</span>
+    </div>
+    <div class='card'>
+      <h3 style='font-size:16px;margin-bottom:12px'>Nối các cặp phù hợp</h3>
+      <div id='matchRows'>${rows}</div>
+      <div id='feedbackSlot'></div>
+      <div class='row' style='margin-top:16px'>
+        <button class='btn' id='checkBtn' data-action='check-matching'>Kiểm tra</button>
+        <button class='btn ghost' data-action='nav' data-view='practice' style='display:none' id='doneBtn'>← Về Practice</button>
+      </div>
+    </div>
+  </div>`;
+}
+function checkMatching(){
+  const s = state.session;
+  if(!s || s.mode !== "matching" || s.checked) return;
+  const m = s.matching;
+  let correct = 0;
+  m.pairs.forEach((p,i)=>{
+    const row = document.querySelector(`[data-mi='${i}']`);
+    const sel = state.matchState[i];
+    if(sel === p.right){ correct++; if(row) row.classList.add("correct"); }
+    else{ if(row) row.classList.add("wrong"); }
+  });
+  s.checked = true;
+  document.querySelectorAll("select.match").forEach(sel=>sel.disabled = true);
+  document.getElementById("checkBtn").style.display = "none";
+  document.getElementById("doneBtn").style.display = "inline-flex";
+
+  const slot = document.getElementById("feedbackSlot");
+  const pct = Math.round((correct/m.pairs.length)*100);
+  slot.innerHTML = `<div class='feedback ${correct===m.pairs.length?'ok':'bad'}'>
+    <div class='fb-title'>${correct===m.pairs.length?'✅ Hoàn hảo!':`Bạn nối đúng ${correct}/${m.pairs.length} cặp`}</div>
+    <div class='fb-exp'><b>Giải thích:</b> ${esc(m.explanationVI)}</div>
+  </div>`;
+
+  // record answers
+  m.pairs.forEach((p,i)=>{
+    const ok = state.matchState[i] === p.right;
+    STORE.stats.attempted++;
+    if(ok) STORE.stats.correct++;
+    if(!STORE.categories[m.category]) STORE.categories[m.category] = {attempted:0,correct:0};
+    STORE.categories[m.category].attempted++;
+    if(ok) STORE.categories[m.category].correct++;
+  });
+  recordActivity("matching", `${m.title} · ${correct}/${m.pairs.length}`, correct, m.pairs.length);
+  touchStreak();
+  saveStore();
+  updateTopStats();
+}
+
+/* =======================================================================
+   20. EVENT HANDLERS
+   ======================================================================= */
+document.addEventListener("click", function(ev){
+  const btn = ev.target.closest("[data-action]");
+  if(!btn) return;
+  const action = btn.dataset.action;
+  switch(action){
+    case "nav": setView(btn.dataset.view); closeSidebar(); break;
+    case "toggle-sidebar": toggleSidebar(); break;
+    case "close-sidebar": closeSidebar(); break;
+    case "select-lesson": state.lessonId = Number(btn.dataset.id); render(); break;
+    case "continue-lesson": state.lessonId = Number(btn.dataset.id); setView("lessons"); break;
+    case "prev-lesson": if(state.lessonId>1){ state.lessonId--; render(); } break;
+    case "next-lesson": if(state.lessonId<10){ state.lessonId++; render(); } break;
+    case "mark-lesson-done": {
+      const id = Number(btn.dataset.id);
+      if(STORE.lessonsCompleted[id]) delete STORE.lessonsCompleted[id];
+      else STORE.lessonsCompleted[id] = true;
+      saveStore();
+      render();
+      break;
+    }
+    case "select-cat": state.practiceCategory = btn.dataset.cat; render(); break;
+    case "select-diff": state.practiceDifficulty = btn.dataset.diff; render(); break;
+    case "select-ptype": state.practiceType = btn.dataset.ptype; render(); break;
+    case "start-practice": {
+      const pool = QUESTIONS.filter(q=>{
+        if(state.practiceCategory!=='all' && q.category !== state.practiceCategory) return false;
+        if(state.practiceDifficulty!=='all' && q.difficulty !== state.practiceDifficulty) return false;
+        if(state.practiceType!=='all' && q.type !== state.practiceType) return false;
+        return true;
+      });
+      if(!pool.length){ alert("Không có câu hỏi nào phù hợp với bộ lọc hiện tại."); return; }
+      startSession({
+        mode:"practice",
+        title:`Practice · ${state.practiceCategory==='all'?'Tất cả':CATEGORY_LABEL[state.practiceCategory]}`,
+        questions: pool.slice(0, Math.min(20, pool.length))
+      });
+      break;
+    }
+    case "start-matching": startMatching(btn.dataset.id); break;
+    case "start-test": {
+      const t = TESTS.find(x=>x.id===btn.dataset.id);
+      if(!t) return;
+      const qs = t.questionIds.map(getQ).filter(Boolean);
+      if(!qs.length) return;
+      startSession({
+        mode:"test",
+        title: t.title,
+        testId: t.id,
+        questions: qs,
+        limit: t.time
+      });
+      break;
+    }
+    case "select-opt": {
+      const s = state.session;
+      if(!s || s.checked) return;
+      s.currentAnswer = btn.dataset.value;
+      document.querySelectorAll(".opt").forEach(b=>b.classList.remove("sel"));
+      btn.classList.add("sel");
+      break;
+    }
+    case "check-answer": checkAnswer(); break;
+    case "next-q": goNext(); break;
+    case "prev-q": goPrev(); break;
+    case "skip-q": skipQuestion(); break;
+    case "self-mark": {
+      const ok = btn.dataset.ok === "1";
+      const s = state.session;
+      if(!s) return;
+      const idx = s.index;
+      const r = s.results[idx];
+      if(!r) return;
+      r.correct = ok;
+      r.auto = true;
+      const q = s.questions[idx];
+      recordAnswer(q, ok, r.userAnswer);
+      const slot = document.getElementById("feedbackSlot");
+      if(slot){
+        slot.innerHTML = `<div class='feedback ${ok?'ok':'bad'}'>
+          <div class='fb-title'>${ok?'✅ Đã ghi nhận: đúng':'❌ Đã ghi nhận: sai'}</div>
+          <div class='fb-exp'><b>Đáp án mẫu:</b> ${esc(Array.isArray(q.answer)?q.answer[0]:q.answer)}</div>
+        </div>`;
+      }
+      updateTopStats();
+      break;
+    }
+    case "abandon-session": {
+      if(!state.session){ setView("practice"); break; }
+      if(confirm("Thoát? Kết quả lượt làm bài này sẽ không được lưu.")){
+        stopTimer();
+        state.session = null;
+        state.matchState = {};
+        render();
+      }
+      break;
+    }
+    case "check-matching": checkMatching(); break;
+    case "retry-one": {
+      const q = getQ(btn.dataset.id);
+      if(!q) return;
+      startSession({ mode:"review", title:"Ôn lại câu sai", questions:[q] });
+      break;
+    }
+    case "retry-all-mistakes": {
+      const ids = Object.keys(STORE.mistakes);
+      const qs = ids.map(getQ).filter(Boolean);
+      if(!qs.length) return;
+      startSession({ mode:"review", title:`Ôn lại ${qs.length} câu sai`, questions: qs });
+      break;
+    }
+    case "remove-mistake": {
+      delete STORE.mistakes[btn.dataset.id];
+      saveStore();
+      render();
+      break;
+    }
+    case "clear-mistakes": {
+      if(confirm("Xoá toàn bộ danh sách lỗi sai?")){
+        STORE.mistakes = {};
+        saveStore();
+        render();
+      }
+      break;
+    }
+    case "save-settings": {
+      const dark = document.getElementById("setDark").checked;
+      const exp = document.getElementById("setExp").checked;
+      STORE.settings.darkMode = dark;
+      STORE.settings.showExplanations = exp;
+      saveStore();
+      applyTheme();
+      alert("Đã lưu thiết lập.");
+      break;
+    }
+    case "reset-lessons": {
+      if(confirm("Đặt lại toàn bộ bài học đã hoàn thành?")){
+        STORE.lessonsCompleted = {};
+        saveStore(); render();
+      }
+      break;
+    }
+    case "reset-tests": {
+      if(confirm("Đặt lại kết quả tất cả bài kiểm tra?")){
+        STORE.tests = {};
+        saveStore(); render();
+      }
+      break;
+    }
+    case "reset-mistakes": {
+      if(confirm("Xoá toàn bộ danh sách lỗi sai?")){
+        STORE.mistakes = {};
+        saveStore(); render();
+      }
+      break;
+    }
+    case "reset-all": {
+      if(confirm("Bạn có chắc chắn muốn đặt lại TOÀN BỘ tiến độ? Hành động này không thể hoàn tác.")){
+        if(confirm("Xác nhận lần cuối — xoá toàn bộ dữ liệu học tập?")){
+          STORE = defaultStore();
+          saveStore();
+          state.session = null;
+          setView("dashboard");
+        }
+      }
+      break;
+    }
+    /* Mini practice inside lessons */
+    case "mini-opt": {
+      const qid = btn.dataset.qid;
+      const group = btn.dataset.group;
+      const q = getQ(qid);
+      if(!q) return;
+      const container = document.querySelector(`[data-mini='${qid}']`);
+      if(!container || container.dataset.done === "1") return;
+      container.querySelectorAll(".opt").forEach(b=>b.classList.remove("sel"));
+      btn.classList.add("sel");
+      container.dataset.selected = btn.dataset.value;
+      break;
+    }
+    case "mini-check": {
+      const qid = btn.dataset.qid;
+      const q = getQ(qid);
+      if(!q) return;
+      const container = document.querySelector(`[data-mini='${qid}']`);
+      if(!container || container.dataset.done === "1") return;
+      const selected = container.dataset.selected;
+      if(!selected){ alert("Hãy chọn một đáp án trước."); return; }
+      const correct = norm(selected) === norm(q.answer);
+      container.dataset.done = "1";
+      container.querySelectorAll(".opt").forEach(b=>{
+        b.disabled = true;
+        if(b.dataset.value === q.answer) b.classList.add("correct");
+        if(b.dataset.value === selected && !correct) b.classList.add("wrong");
+      });
+      const slot = container.querySelector(".feedback-slot");
+      slot.innerHTML = `<div class='feedback ${correct?'ok':'bad'}'>
+        <div class='fb-title'>${correct?'✅ Chính xác!':'❌ Chưa đúng'}</div>
+        <div class='fb-ans'><b>Đáp án:</b> ${esc(q.answer)}</div>
+        <div class='fb-exp'><b>Giải thích:</b> ${esc(q.explanationVI)}</div>
+      </div>`;
+      recordAnswer(q, correct, selected);
+      updateTopStats();
+      break;
+    }
+    default: break;
+  }
+});
+
+document.addEventListener("change", function(ev){
+  const t = ev.target;
+  if(t.matches("[data-action='match-select']")){
+    const i = Number(t.dataset.mi);
+    if(t.value) state.matchState[i] = t.value;
+    else delete state.matchState[i];
+    renderMatchingSession();
+  }
+});
+
+document.addEventListener("input", function(ev){
+  if(ev.target.id === "lessonSearch"){
+    state.searchTerm = ev.target.value;
+    // debounce-ish: rerender after user stops briefly via timeout
+    clearTimeout(window.__lessonSearchT);
+    window.__lessonSearchT = setTimeout(()=>{
+      const focusVal = state.searchTerm;
+      const el = document.getElementById("view");
+      el.innerHTML = viewLessons();
+      const inp = document.getElementById("lessonSearch");
+      if(inp){ inp.value = focusVal; inp.focus(); }
+    }, 200);
+  }
+  if(ev.target.id === "mistakeSearch"){
+    state.mistakeSearch = ev.target.value;
+    clearTimeout(window.__mistakeSearchT);
+    window.__mistakeSearchT = setTimeout(()=>{
+      const v = state.mistakeSearch;
+      document.getElementById("view").innerHTML = viewMistakes();
+      const inp = document.getElementById("mistakeSearch");
+      if(inp){ inp.value = v; inp.focus(); }
+    }, 200);
+  }
+});
+
+document.addEventListener("keydown", function(ev){
+  if(ev.key !== "Enter") return;
+  const s = state.session;
+  if(!s) return;
+  const active = document.activeElement;
+  if(active && active.id === "answerInput"){
+    ev.preventDefault();
+    if(!s.checked) checkAnswer();
+    else goNext();
+  }
+});
+
+/* =======================================================================
+   21. INIT
+   ======================================================================= */
+loadStore();
+applyTheme();
+setView("dashboard");
+</script>
+</body>
+</html>
